@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/frontend/static/css/main.9a9e85ff.chunk.css",
+    "main.js": "/frontend/static/js/main.3796c019.chunk.js",
+    "main.js.map": "/frontend/static/js/main.3796c019.chunk.js.map",
+    "runtime-main.js": "/frontend/static/js/runtime-main.22f3e0df.js",
+    "runtime-main.js.map": "/frontend/static/js/runtime-main.22f3e0df.js.map",
+    "static/js/2.1a435da1.chunk.js": "/frontend/static/js/2.1a435da1.chunk.js",
+    "static/js/2.1a435da1.chunk.js.map": "/frontend/static/js/2.1a435da1.chunk.js.map",
+    "index.html": "/frontend/index.html",
+    "precache-manifest.71b7288034c575966ae69622e43aa1f9.js": "/frontend/precache-manifest.71b7288034c575966ae69622e43aa1f9.js",
+    "service-worker.js": "/frontend/service-worker.js",
+    "static/css/main.9a9e85ff.chunk.css.map": "/frontend/static/css/main.9a9e85ff.chunk.css.map",
+    "static/js/2.1a435da1.chunk.js.LICENSE.txt": "/frontend/static/js/2.1a435da1.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/frontend/static/media/NotoSansCJKkr-Thin.6a45f53f.otf",
+    "static/media/glass.png": "/frontend/static/media/glass.a03be941.png",
+    "static/media/infopic.jpg": "/frontend/static/media/infopic.2a34878e.jpg",
+    "static/media/logo_pre.png": "/frontend/static/media/logo_pre.44fb214e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.22f3e0df.js",
+    "static/js/2.1a435da1.chunk.js",
+    "static/css/main.9a9e85ff.chunk.css",
+    "static/js/main.3796c019.chunk.js"
+  ]
+}
