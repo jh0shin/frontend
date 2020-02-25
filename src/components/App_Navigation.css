@@ -39,11 +39,6 @@
 }
 
 @media only screen and (max-width: 500px) {
-	.centerImg {
-		margin-left: 0;
-		width: 150px; 
-		height: 70px;
-	}
 	.topBar a {
 		width: 50px;
 		font-size: 10px;
