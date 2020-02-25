@@ -19,9 +19,8 @@ function Home_IdInput() {
       data: input,
     })
     .then(function (response) {console.log(response)})
-    .catch(function (error) {console.log(error)})
-    console.log(input);
-    alert.success(input);
+    .catch(function (error) {console.log(error)});
+    alert.success("검토 후 1영업일 이내에 회신드리겠습니다.");
   })
 
   return (
