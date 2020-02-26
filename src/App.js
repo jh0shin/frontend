@@ -9,6 +9,7 @@ import Home from './routes/Home';
 import Search from './routes/Search';
 import Request from './routes/Request';
 import About from './routes/About';
+import ContactList from './components/ContactList';
 
 function AppShow() {
   return (
@@ -19,6 +20,7 @@ function AppShow() {
         <Route path="/search" component={Search}/>
         <Route path="/request" component={Request}/>
         <Route path="/about" component={About}/>
+        <Route path="/contactList" component={ContactList}/>
       </BrowserRouter>
       <App_Bottom/>
     </div>
