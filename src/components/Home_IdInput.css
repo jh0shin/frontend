@@ -1,6 +1,7 @@
 .back{
     color : #ffb13f;
     text-align: center;
+    margin-bottom: 60px;
 }
 .buttonImg{
     display: block;
@@ -36,10 +37,27 @@
 	float: left;
 	padding: 0px;
 }
+.inputInfo{
+    font-size: 1vw;
+    text-align: left;
+    color: gray;
+    width: 100%;
+    display: block;
+}
 
 @media only screen and (max-width: 600px) {
 	.inputBar{
         width: 455px;
+    }
+    .searchInput{
+        width: 300px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+	.inputBar{
+        width: 450;
     }
     .searchInput{
         width: 300px;

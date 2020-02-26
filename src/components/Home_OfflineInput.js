@@ -49,8 +49,8 @@ function Home_OfflineInput(){
       <input className="textInput" type="text" value={hcall} onChange={onChangeHcall} name="phone" placeholder="전화번호"/>
       <input className="textInput" type="text" value={address} onChange={onChangeAddress}  name="place" placeholder="거주지 (동까지)"/>
       <input className="textInput" type="text" value={grade} onChange={onChangeGrade}  name="childGrage" placeholder="자녀 학년"/>
-      <input className="textInput" type="text" value={school} onChange={onChangeSchool} n ame="childSchool" placeholder="자녀 학교"/>
-      <textarea className="massageInput" type="text" value={etc} onChange={onChangeEtc} na me="message" rows="10" cols="30" placeholder="기타 요청 사항 (관심 과목, 성적대, 성향 등)"/>
+      <input className="textInput" type="text" value={school} onChange={onChangeSchool} name="childSchool" placeholder="자녀 학교"/>
+      <textarea className="massageInput" type="text" value={etc} onChange={onChangeEtc} name="message" rows="10" cols="30" placeholder="기타 요청 사항 (관심 과목, 성적대, 성향 등)"/>
       <label className="checkbox"><input className="checkbox" type="checkbox" onChange={ () => setIsChecked(!isChecked) } name="agree"/>개인정보 수집 및 이용에 동의합니다.</label>
       <button onClick={ isChecked
         ? onClickChecked
