@@ -1,8 +1,8 @@
 import React from 'react';
-import './Home_Img.css';
+import './HomeImg.css';
 import pptImg from '../img/infopic.jpg'
 
-function Home_img() {
+function HomeImg() {
   return (
     <div className="infoImg">
 		  <img className="pptImg" src={pptImg} alt="학원고의 이념" title="학원고 설명"/>
@@ -13,4 +13,4 @@ function Home_img() {
 	  </div>);
 }
 
-export default Home_img;
+export default HomeImg;

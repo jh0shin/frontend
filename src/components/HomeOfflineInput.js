@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Fragment } from "react";
 import { useAlert } from "react-alert";
-import './Home_OfflineInput.css';
+import './HomeOfflineInput.css';
 
 import http from '../api';
 
-function Home_OfflineInput(){
+function HomeOfflineInput(){
   const alert = useAlert();
   const [isChecked, setIsChecked] = useState(false);
 
@@ -62,4 +62,4 @@ function Home_OfflineInput(){
   );
 }
 
-export default Home_OfflineInput;
+export default HomeOfflineInput;

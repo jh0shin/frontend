@@ -4,12 +4,13 @@
 	background-color: #e9db89;
 	height: 70px;
 }
+
 .centerImg {
 	margin-left: 20px;
 	width: 150px; 
 	height: 70px;
 }
-.topBar a {
+.topBar a{
 	float: right;
 	color: #666;
 	text-align: center;
@@ -25,6 +26,15 @@
 }
 .topBar a.active {
 	background-color: #ddd;
+}
+#mainLink{
+	height: 70px;
+	float: left;
+	padding: 0px;
+	margin: 0px;
+}
+#mainLink:hover {
+	background-color: #e9db89;
 }
 
 @media only screen and (max-width: 600px) {
@@ -42,5 +52,6 @@
 	.topBar a {
 		width: 50px;
 		font-size: 10px;
+		height: 22px;
 	}
 }

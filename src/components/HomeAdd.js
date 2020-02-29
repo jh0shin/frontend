@@ -1,8 +1,8 @@
 import React from 'react';
-import './Home_Add.css';
+import './HomeAdd.css';
 import addImg from '../img/addImgBig.png'
 
-function Home_Add() {
+function HomeAdd() {
   return (
     <div>
         <img className="addImg" src={addImg} alt="광고"/>
@@ -10,4 +10,4 @@ function Home_Add() {
   );
 }
 
-export default Home_Add;
+export default HomeAdd;

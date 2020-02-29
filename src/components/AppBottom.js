@@ -1,7 +1,7 @@
 import React from 'react';
-import './App_Bottom.css';
+import './AppBottom.css';
 
-function App_Bottom() {
+function AppBottom() {
   return (
     <div className="bottom">
       <p>서울시 성북구 안암로 5가</p>
@@ -12,4 +12,4 @@ function App_Bottom() {
   );
 }
 
-export default App_Bottom;
+export default AppBottom;

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Fragment } from "react";
 import { useAlert } from "react-alert";
-import './Home_LectureInput.css';
+import './HomeLectureInput.css';
 
 import http from '../api';
 
-function Home_LectureInput(){
+function HomeLectureInput(){
   const alert = useAlert();
   const [isChecked, setIsChecked] = useState(false);
 
@@ -51,7 +51,7 @@ function Home_LectureInput(){
       <input className="textInput" value={email} onChange={onChangeEmail} type="text" name="email" placeholder="이메일"/>
       <input className="textInput" value={location} onChange={onChangeLocation} type="text" name="place" placeholder="강연 지역"/>
       <textarea className="massageInput" value={etc} onChange={onChangeEtc} type="text" name="message" rows="10" cols="30" placeholder="기타 요청 사항 (관심 과목, 성적대, 성향 등)"/>
-      <label className="checkbox"><input className="checkbox" type="checkbox" onChange={ () => setIsChecked(!isChecked) } name="agree"/>개인정보 수집 및 이용에 동의합니다.</label>
+      <label className="checkbox"><input type="checkbox" onChange={ () => setIsChecked(!isChecked) } name="agree"/>개인정보 수집 및 이용에 동의합니다.</label>
       <button onClick={ isChecked 
         ? onClickChecked
         : () => { alert.error("개인정보 동의 및 이용에 체크해 주십시오"); }
@@ -62,4 +62,4 @@ function Home_LectureInput(){
   );
 }
 
-export default Home_LectureInput;
+export default HomeLectureInput;

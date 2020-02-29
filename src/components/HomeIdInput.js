@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useAlert } from "react-alert";
-import './Home_IdInput.css';
+import './HomeIdInput.css';
 import searchButton from '../img/glass.png'
 
 import http from '../api';
 
-function Home_IdInput() {
+function HomeIdInput() {
   const alert = useAlert();
 
   const [input, setInput] = useState('');
@@ -36,4 +36,4 @@ function Home_IdInput() {
   );
 }
 
-export default Home_IdInput;
+export default HomeIdInput;

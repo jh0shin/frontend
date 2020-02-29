@@ -1,16 +1,16 @@
 import React from 'react';
-import Home_Img from '../components/Home_Img'
-import Home_SelectField from '../components/Home_SelectField'
-import Home_IdInput from '../components/Home_IdInput'
-import Home_Add from '../components/Home_Add';
+import HomeImg from '../components/HomeImg'
+import HomeSelectField from '../components/HomeSelectField'
+import HomeIdInput from '../components/HomeIdInput'
+import HomeAdd from '../components/HomeAdd';
 
 function Home() {
   return (
     <div>
-      <Home_Add/>
-      <Home_IdInput/>
-      <Home_Img/>
-      <Home_SelectField/>
+      <HomeAdd/>
+      <HomeIdInput/>
+      <HomeImg/>
+      <HomeSelectField/>
     </div>
   );
 }

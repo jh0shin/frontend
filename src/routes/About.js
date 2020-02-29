@@ -1,10 +1,10 @@
 import React from 'react';
-import Home_Img from '../components/Home_Img'
+import HomeImg from '../components/HomeImg'
 
 function About() {
   return (
     <div>
-      <Home_Img/>
+      <HomeImg/>
     </div>
   );
 }
