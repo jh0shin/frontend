@@ -6,7 +6,7 @@ import logo from '../img/logo_pre.png'
 function AppNavigation() {
   return (
     <div className="topBar">
-		  <a id="mainLink" href="hakwongo.com"><img className="centerImg" src={logo} alt="학원고" title="학원고"/></a>
+		  <Link id="mainLink" to="/"><img className="centerImg" src={logo} alt="학원고" title="학원고"/></Link>
       <Link to="/about">About</Link>
       <Link to="/request">Request</Link>
       <Link to="/search">Search</Link>
