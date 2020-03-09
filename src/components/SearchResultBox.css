@@ -1,0 +1,12 @@
+.resultBox{
+    padding: 0 1vw 0 1vw;
+    height: 130px;
+    width: 40%;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+.resultBox:hover{
+    opacity: 0.8;
+}
