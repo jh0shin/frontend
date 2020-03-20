@@ -1,4 +1,27 @@
-.addImg{
+.addField{
+    height: 500px;
     width: 100%;
     background-color: white;
+    padding-top: 10px;
+    position: relative;
+}
+.addImg{
+    display: block;
+    margin: 0px auto;
+    height: 100%;
+}
+.inputStyle{
+    position: absolute;
+    top: 370px;
+    left: 50%;
+    margin-left: -170px;
+}
+@media only screen and (max-width: 1000px) {
+	.addImg {
+        width: 100%;
+        height: auto;
+    }
+    .addField{
+        height: auto;
+    }
 }

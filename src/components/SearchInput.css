@@ -1,0 +1,25 @@
+.searchInputField{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.resultField{
+    width: 100%;
+}
+.hakwonResult{
+    width: 40%;
+    float: left;
+}
+.mapResult{
+    width: 60%;
+    height: 800px;
+    float: left;
+    margin-bottom: 20px;
+}
+button{
+    border-style: none;
+}
+.pageButton{
+    border-style: none solid;
+    background-color: white;
+    border-color: gray;
+}

@@ -1,14 +1,23 @@
 /*탑 네비게이션*/
 
 .topBar {
-	background-color: #e9db89;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 0;  
+	z-index: 2;
+	background-color: white;
+	padding-left: 100px;
+	padding-right: 100px;
 	height: 70px;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #f0f0f0;
 }
 
 .centerImg {
 	margin-left: 20px;
-	width: 150px; 
 	height: 70px;
+	width: auto; 
 }
 .topBar a{
 	float: right;
@@ -22,10 +31,7 @@
 	font-size: 15px;
 }
 .topBar a:hover {
-	background-color: #ebe3be;
-}
-.topBar a.active {
-	background-color: #ddd;
+	color: gray;
 }
 #mainLink{
 	height: 70px;
@@ -34,7 +40,13 @@
 	margin: 0px;
 }
 #mainLink:hover {
-	background-color: #e9db89;
+	background-color: white;
+}
+
+@media only screen and (max-width: 1200px) {
+	.topBar {
+		padding: 0px;
+	}
 }
 
 @media only screen and (max-width: 600px) {

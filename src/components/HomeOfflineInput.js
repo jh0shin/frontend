@@ -42,11 +42,15 @@ function HomeOfflineInput(){
 
   return (
     <Fragment>
-    <div className="inputField">
+    <div className="inputFieldOffline">
       <h2 className="inputTitle">학원 자문 요청</h2>
       <input className="textInput" type="text" value={pname} onChange={onChangePname} name="parentsName" placeholder="학부모명"/>
       <input className="textInput" type="text" value={sname} onChange={onChangeSname} name="childName" placeholder="자녀명"/>
-      <input className="textInput" type="text" value={hcall} onChange={onChangeHcall} name="phone" placeholder="전화번호"/>
+      {/* 여기부터 */}
+      <input className="textInput" type="text" value={hcall} onChange={onChangeSname} name="childName" placeholder="학부모 전화번호"/> 
+      <input className="textInput" type="text" value={hcall} onChange={onChangeSname} name="childName" placeholder="자녀 전화번호"/>
+      <input className="textInput" type="text" value={hcall} onChange={onChangeSname} name="childName" placeholder="이메일"/>
+      {/* 여기까지 추가된 부분 백연결 필요 */}
       <input className="textInput" type="text" value={address} onChange={onChangeAddress}  name="place" placeholder="거주지 (동까지)"/>
       <input className="textInput" type="text" value={grade} onChange={onChangeGrade}  name="childGrage" placeholder="자녀 학년"/>
       <input className="textInput" type="text" value={school} onChange={onChangeSchool} name="childSchool" placeholder="자녀 학교"/>
