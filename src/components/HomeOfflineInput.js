@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Fragment } from "react";
 import { useAlert } from "react-alert";
-import './HomeOfflineInput.css';
+import './HomeInput.css';
 
 import http from '../api';
 

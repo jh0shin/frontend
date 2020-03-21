@@ -49,10 +49,10 @@
 	}
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 720px) {
 	.centerImg {
 		margin-left: 0;
-		width: 150px; 
+		width: auto; 
 		height: 70px;
 	}
 	.topBar a {
@@ -60,7 +60,7 @@
 	}
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
 	.topBar a {
 		width: 50px;
 		font-size: 10px;

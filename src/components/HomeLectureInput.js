@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Fragment } from "react";
 import { useAlert } from "react-alert";
-import './HomeLectureInput.css';
+import './HomeInput.css';
 
 import http from '../api';
 
@@ -42,7 +42,7 @@ function HomeLectureInput(){
 
   return (
     <Fragment>
-    <div className="inputField">
+    <div className="inputFieldLecture">
       <h2 className="inputTitle">입시설명회 개최</h2>
       <input className="textInput" value={cname} onChange={onChangeCname} type="text" name="companyName" placeholder="기업 (단체명)"/>
       <input className="textInput" value={name} onChange={onChangeName} type="text" name="employeeName" placeholder="담당자 성함"/>

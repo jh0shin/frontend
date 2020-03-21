@@ -9,7 +9,7 @@
     color: #454545;
     height: 520px;
 }
-.inputField{
+.inputFieldLecture{
     width: 630px;
     background-color: white;
     margin-left: auto;
@@ -18,7 +18,7 @@
     padding-right: 60px;
     padding-top: 10px;
     color: #454545;
-    height: 520px;
+    height: 480px;
 }
 .inputTitle{
     text-align: left;
@@ -69,9 +69,15 @@
 }
 
 @media only screen and (max-width: 760px) {
-    .inputField{
+    .inputFieldOffline{
         width: 89%;
-        height: 630px;
+        height: 720px;
+        padding-left: 10%;
+        padding-right: 0px;
+    }
+    .inputFieldLecture{
+        width: 89%;
+        height: 650px;
         padding-left: 10%;
         padding-right: 0px;
     }
