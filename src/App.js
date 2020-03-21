@@ -1,6 +1,7 @@
 import React from 'react';
-import {Route, BrowserRouter} from "react-router-dom";
+import {Route, HashRouter} from "react-router-dom";
 import { positions, Provider } from "react-alert";
+import ScrollToTop from './components/ScrollToTop'
 import AlertTemplate from "react-alert-template-basic";
 import './App.css';
 import AppNavigation from './components/AppNavigation'
@@ -16,16 +17,18 @@ import ContactList from './components/ContactList';
 function AppShow() {
   return (
     <div>
-      <BrowserRouter>
-        <AppNavigation/>
-        <Route path="/" exact={true} component={Home}/>
-        <Route path="/search" component={Search}/>
-        <Route path="/request" component={Request}/>
-        <Route path="/about" component={About}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/company" component={Company}/>
-        <Route path="/contactList" component={ContactList}/>
-      </BrowserRouter>
+      <HashRouter>
+        <ScrollToTop>
+          <AppNavigation/>
+            <Route path="/" exact={true} component={Home}/>
+            <Route path="/search" component={Search}/>
+            <Route path="/request" component={Request}/>
+            <Route path="/about" component={About}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/company" component={Company}/>
+            <Route path="/contactList" component={ContactList}/>
+        </ScrollToTop>
+      </HashRouter>
       <AppBottom/>
     </div>
   );

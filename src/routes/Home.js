@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
       <HomeAdd/>
-      <HomeSelectField/>
+      <HomeSelectField isParent={true}/>
     </div>
   );
 }
