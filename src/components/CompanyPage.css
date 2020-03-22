@@ -1,7 +1,157 @@
-.comPage{
+#comPage{
     color: #454545;
 }
-.firstPara{
-    padding-top: 10px;
+#firstPara{
     background-color: #ffed49;
+}
+#firOne{
+    display: block;
+    width:65%;
+    margin: 0 auto;
+    padding-top: 20px;
+    font-size: 20px;
+
+}
+#firTwo{
+    display: block;
+    width:65%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 35px;
+}
+#companyCap{
+    display: block;
+    width:65%;
+    margin: 0 auto;
+}
+#firThree{
+    display: block;
+    width:65%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    text-align: right;
+}
+#secondPara{
+    width:65%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+#secOne{
+    display: block;
+    font-size: 30px;
+    font-weight: 500;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#secFlex{
+    display: flex;
+    justify-content: space-between;
+}
+#secFlexBox{
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+}
+#companyPic{
+    width: 100%;
+}
+#compantText{
+    font-size: 15px;
+}
+#thirdColor{
+    background-color: white;
+}
+#thirdPara{
+    display: flex;
+    justify-content: space-between;
+    width:65%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#thiFlexBox{
+    background-color: #f9f9f9;
+    display: inline-block;
+    width: 48%;
+}
+#thiOne{
+    display: block;
+    font-weight: 600;
+    font-size: 23px;
+    color: orange;
+}
+#thiTwo{
+    display: block;
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+#thiThree{
+    display: block;
+    font-weight: 600;
+    font-size: 25px;
+    color: orange;
+}
+#thiFour{
+    display: block;
+    text-align: right;
+    font-size: 20px;
+    color: gray;
+}
+#fourthColor{
+    background-color: #f9f9f9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#fourthPara{
+    width:65%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+#fouLine{
+    width: 150px;
+    margin: 0 auto;
+    border: 1px solid #454545;
+}
+#fouOne{
+    padding-top: 10px;
+    display: block;
+    font-size: 40px;
+    text-align: center;
+}
+#fouTwo{
+    padding-top: 10px;
+    display: block;
+    font-size: 25px;
+    text-align: center;
+}
+#fouThree{
+    padding-top: 30px;
+    display: block;
+    font-weight: 600;
+    font-size: 25px;
+}
+#fouFour{
+    padding-top: 10px;
+    display: block;
+    font-size: 20px;
+}
+div,span{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+@media only screen and (max-width: 900px) {
+    #thirdPara{
+        flex-direction: column;
+    }
+    #thiFlexBox{
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }

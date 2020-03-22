@@ -11,14 +11,18 @@ class SearchInput extends React.Component {
     }
   }
 
-  showMap = () => {
+  componentDidMount() {
+    this.showLogin();
+  }
+
+  showLogin = () => {
     const script = document.createElement('script');
     script.async = true;
-    script.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
+    script.src = "//developers.kakao.com/sdk/js/kakao.min.js";
     document.head.appendChild(script);
 
     script.onload = () => {
-      kakao.maps.load(() => {
+      //<![CDATA[
         // 사용할 앱의 JavaScript 키를 설정해 주세요.
         window.Kakao.init('9f17d1af144fec8d4501c5e713f1c0a8');
         // 카카오 로그인 버튼을 생성합니다.
@@ -31,8 +35,8 @@ class SearchInput extends React.Component {
             alert(JSON.stringify(err));
           }
         });
-      });
     };
+    //]]>
   }
 
   render() {

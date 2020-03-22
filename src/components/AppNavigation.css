@@ -13,7 +13,6 @@
 	border-width: 1px;
 	border-color: #f0f0f0;
 }
-
 .centerImg {
 	margin-left: 20px;
 	height: 70px;
@@ -61,9 +60,17 @@
 }
 
 @media only screen and (max-width: 600px) {
+	.topBar {
+		height: 40px;
+	}
+	.centerImg {
+		width: auto; 
+		height: 40px;
+	}
 	.topBar a {
 		width: 50px;
 		font-size: 10px;
 		height: 22px;
+		margin-top: 7px;
 	}
 }

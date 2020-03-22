@@ -34,7 +34,7 @@
         display: none;
     }
     .inputStyleSmall{
-        display: block;
+        display: inline-block;
         width: 100%;
         color: #ffb13f;
         text-align: center;
