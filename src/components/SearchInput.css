@@ -1,3 +1,7 @@
+.searchBody{
+    width: 90%;
+    margin: 0 auto;
+}
 .searchInputField{
     margin-top: 10px;
     margin-bottom: 20px;

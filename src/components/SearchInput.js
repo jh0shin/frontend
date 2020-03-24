@@ -13,7 +13,8 @@ class SearchInput extends React.Component {
       searchResult: [],
       pageNum: [],
       pageShow: [],
-      rawData: []
+      rawData: [],
+      onPageNum: 0
     }
   }
 
@@ -128,13 +129,27 @@ class SearchInput extends React.Component {
 
     pageSingle = rawData.slice(e.target.id * 7 - 7, e.target.id * 7);
 
-    this.setState({pageShow: pageSingle},()=>{this.showMap()})
+    this.setState({pageShow: pageSingle},()=>{this.showMap()});
+    this.setState({onPageNum: e.target.id});
+  }
+
+  handlePagePlus = (e) => {
+    const { rawData, onPageNum, pageNum } = this.state;
+    let pageSingle = [];
+
+    if(onPageNum < pageNum.length){
+      pageSingle = rawData.slice((onPageNum+1) * 7 - 7, (onPageNum+1) * 7);
+    }else{
+      pageSingle = rawData.slice(onPageNum * 7 - 7, onPageNum * 7);
+    }
+
+    this.setState({pageShow: pageSingle},()=>{this.showMap()});
   }
 
   render() {
     const { pageShow, pageNum } = this.state;
     return (
-      <div>
+      <div className = "searchBody">
         <div className="searchInputField">
           <input type="text" onKeyUp={this.handleKeyUp} value={this.state.hakwonName} onChange={this.handleChangeInput} name="hakwonName" placeholder="학원이름을 입력해 주세요" />
           <button onClick={this.handleInputClick}>검색</button>
@@ -152,11 +167,13 @@ class SearchInput extends React.Component {
               />
             })}
             <br />
+            <button className="pageButton" onClick={this.handlePageClick}>&#60;</button>
             {pageNum.map(pageNum => {
               return (
                 <button className="pageButton" onClick={this.handlePageClick} key={pageNum.key} id={pageNum.key}>{pageNum.key}</button>
               )
             })}
+            <button className="pageButton" onClick={this.handlePagePlus}>&#62;</button>
           </div>
           <div id="map" className="mapResult"></div>
         </div>

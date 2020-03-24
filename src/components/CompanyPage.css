@@ -1,5 +1,6 @@
 #comPage{
     color: #454545;
+    word-break: keep-all;
 }
 #firstPara{
     background-color: #ffed49;
@@ -10,7 +11,6 @@
     margin: 0 auto;
     padding-top: 20px;
     font-size: 20px;
-
 }
 #firTwo{
     display: block;
@@ -100,6 +100,13 @@
     font-size: 20px;
     color: gray;
 }
+#thiFive{
+    display: block;
+    font-weight: 600;
+    font-size: 25px;
+    color: orange;
+    text-align: right;
+}
 #fourthColor{
     background-color: #f9f9f9;
     padding-top: 20px;
@@ -149,9 +156,13 @@ div,span{
 @media only screen and (max-width: 900px) {
     #thirdPara{
         flex-direction: column;
+        width: 95%;
     }
     #thiFlexBox{
         width: 100%;
         margin-bottom: 20px;
+    }
+    #firOne, #firTwo, #companyCap, #firThree, #secondPara, #fourthPara{
+        width: 95%;
     }
 }

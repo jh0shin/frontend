@@ -37,14 +37,14 @@ function CompanyPage() {
             <span id = "thiOne">"</span>
             <span id = "thiTwo">아이의 학년이 올라갈수록 자녀 교육의 방향을 잡지 못해 고민이 많았습니다. 주위에서 마음을 터놓고 상의할 육아 선배도 없었구요.</span>
             <span id = "thiOne">하지만 워킹맘을 배려하는 학원고 프로그램 덕에, 전문가와 충분한 상의를 거치고 자녀의 중학교 입학에 대비할 수 있었습니다.</span>
-            <span id = "thiThree">"</span>
+            <span id = "thiFive">"</span>
             <span id = "thiFour">중1, 초6 자녀를 둔 마포의 워킹맘 <br/> A씨</span>
           </div>
           <div id = "thiFlexBox">
             <span id = "thiOne">"</span>
             <span id = "thiTwo">우리 아이는 잘 컸습니다. 아니 잘 컸다고 생각했습니다. 고1 첫 시험 성적표를 받아오기 전까지는...</span>
             <span id = "thiOne">아빠들이 대치동 학원가 귀동냥하기 쉽지 않은데, 회사로 찾아온 학원고 전문가덕에 아이의 교육문제에 관해 마음 놓고 상담할 수 있었습니다.</span>
-            <span id = "thiThree">"</span>
+            <span id = "thiFive">"</span>
             <span id = "thiFour">고1 자녀를 둔 천안의 워킹대디 <br/> B씨</span>
           </div>
         </div>
