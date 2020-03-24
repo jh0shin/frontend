@@ -1,34 +1,22 @@
 .field{
-    position: relative;
     padding-top: 10px;
     text-align: center;
     background-color: #ffed49;
     color:#454545;
-    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
 }
-#requestTitle{
-    margin-top: 0px;
+#requestTextOne{
+    margin: 0;
 }
-h2{
-    font-weight: 400;
-}
-.selectButton{
-    width: 300px;
-    height: 70px;
-    font-size: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border: none;
-    background-color: aliceblue;
-    margin-bottom: 20px;
+#requestTextTwo{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-weight: 500;
 }
 #companyButton{
     width: 750px;
-    height: 50px;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    margin-left: -375px;
+    margin: 20px auto;
     background-color: white;
     text-decoration: none;
     text-align: center;
