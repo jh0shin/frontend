@@ -1,7 +1,7 @@
-.inputFieldOffline{
+.inputField{
     width: 630px;
     background-color: white;
-    margin: 10px auto;
+    margin: 0 auto;
     padding-left: 60px;
     padding-right: 60px;
     padding-top: 10px;
@@ -11,21 +11,14 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.inputFieldLecture{
-    width: 630px;
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 10px;
-    color: #454545;
-    height: 480px;
-}
 .inputTitle{
     text-align: left;
     margin-bottom: 10px;
     width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .textInput{
     width: 48%;
@@ -57,7 +50,7 @@
 .inputButton{
     width: 100px;
     height: 50px;
-    font-size: 20px;
+    font-size: 18px;
     border: none;
     background-color: #ff4e4e;
     color: white;
@@ -65,22 +58,19 @@
 }
 
 @media only screen and (max-width: 760px) {
-    .inputFieldOffline{
-        width: 89%;
-        height: 720px;
-        padding-left: 10%;
-        padding-right: 0px;
-    }
-    .inputFieldLecture{
-        width: 89%;
-        height: 650px;
-        padding-left: 10%;
-        padding-right: 0px;
-    }
-    .inputTitle , .textInput , .massageInput{
+    .inputField{
         width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
-    .inputButton{
-        margin-right: 17%;
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .inputTitle , .textInput , .massageInput{
+        width: 100%;
+    }
+    .checkbox{
+        margin-bottom: 10px;
     }
 }

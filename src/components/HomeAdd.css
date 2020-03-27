@@ -1,3 +1,7 @@
+#HomeAdd{
+    position: absolute;
+    top: -70px;
+}
 .addField{
     height: 500px;
     width: 100%;
@@ -14,12 +18,17 @@
 }
 .inputStyle{
     position: absolute;
-    top: 370px;
+    top: 400px;
     left: 50%;
     margin-left: -170px;
 }
 .inputStyleSmall{
     display: none;
+}
+#HomeAddText{
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 600;
 }
 @media only screen and (max-width: 950px) {
     .addBigImg{

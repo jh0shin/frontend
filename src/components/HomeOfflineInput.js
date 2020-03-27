@@ -42,7 +42,7 @@ function HomeOfflineInput(){
 
   return (
     <Fragment>
-    <div className="inputFieldOffline">
+    <div className="inputField">
       <h2 className="inputTitle">학원 자문 요청</h2>
       <input className="textInput" type="text" value={pname} onChange={onChangePname} name="parentsName" placeholder="학부모명"/>
       <input className="textInput" type="text" value={sname} onChange={onChangeSname} name="childName" placeholder="자녀명"/>

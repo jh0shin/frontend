@@ -1,5 +1,4 @@
 .field{
-    padding-top: 10px;
     text-align: center;
     background-color: #ffed49;
     color:#454545;
@@ -8,11 +7,14 @@
 }
 #requestTextOne{
     margin: 0;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 600;
 }
 #requestTextTwo{
-    margin-top: 10px;
-    margin-bottom: 0px;
+    font-size: 20px;
     font-weight: 500;
+    padding-bottom: 20px;
 }
 #companyButton{
     width: 750px;
@@ -22,6 +24,18 @@
     text-align: center;
     color: #454545;
     font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#companyNoButton{
+    margin-bottom: 40px;
+}
+#homeSelectFieldAnchorSpace{
+    position: relative;
+}
+#HomeSelectField{
+    position: absolute;
+    top: -70px;
 }
 @media only screen and (max-width: 760px) {
     #companyButton{

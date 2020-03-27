@@ -2,17 +2,17 @@
     color: #454545;
     word-break: keep-all;
 }
-#firstPara{
+#comFirstPara{
     background-color: #ffed49;
 }
-#firOne{
+#comFirOne{
     display: block;
     width:65%;
     margin: 0 auto;
     padding-top: 20px;
     font-size: 20px;
 }
-#firTwo{
+#comFirTwo{
     display: block;
     width:65%;
     margin: 0 auto;
@@ -25,7 +25,7 @@
     width:65%;
     margin: 0 auto;
 }
-#firThree{
+#comFirThree{
     display: block;
     width:65%;
     margin: 0 auto;
@@ -34,23 +34,23 @@
     font-size: 15px;
     text-align: right;
 }
-#secondPara{
+#comSecondPara{
     width:65%;
     margin: 0 auto;
     padding-bottom: 20px;
 }
-#secOne{
+#comSecOne{
     display: block;
     font-size: 30px;
     font-weight: 500;
     padding-top: 20px;
     padding-bottom: 20px;
 }
-#secFlex{
+#comSecFlex{
     display: flex;
     justify-content: space-between;
 }
-#secFlexBox{
+#comSecFlexBox{
     display: inline-block;
     width: 25%;
     text-align: center;
@@ -61,10 +61,10 @@
 #compantText{
     font-size: 15px;
 }
-#thirdColor{
+#comThirdColor{
     background-color: white;
 }
-#thirdPara{
+#comThirdPara{
     display: flex;
     justify-content: space-between;
     width:65%;
@@ -72,97 +72,89 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
-#thiFlexBox{
+#comThiFlexBox{
     background-color: #f9f9f9;
     display: inline-block;
     width: 48%;
 }
-#thiOne{
+#comThiOne{
     display: block;
     font-weight: 600;
     font-size: 23px;
     color: orange;
 }
-#thiTwo{
+#comThiTwo{
     display: block;
     font-size: 25px;
     padding-bottom: 10px;
 }
-#thiThree{
+#comThiThree{
     display: block;
     font-weight: 600;
     font-size: 25px;
     color: orange;
 }
-#thiFour{
+#comThiFour{
     display: block;
     text-align: right;
     font-size: 20px;
     color: gray;
 }
-#thiFive{
+#comThiFive{
     display: block;
     font-weight: 600;
     font-size: 25px;
     color: orange;
     text-align: right;
 }
-#fourthColor{
+#comFourthColor{
     background-color: #f9f9f9;
     padding-top: 20px;
     padding-bottom: 20px;
 }
-#fourthPara{
+#comFourthPara{
     width:65%;
     margin: 0 auto;
     padding-bottom: 20px;
 }
-#fouLine{
+#comFouLine{
     width: 150px;
     margin: 0 auto;
-    border: 1px solid #454545;
+    border: 2px solid #454545;
 }
-#fouOne{
+#comFouOne{
     padding-top: 10px;
     display: block;
     font-size: 40px;
     text-align: center;
 }
-#fouTwo{
+#comFouTwo{
     padding-top: 10px;
     display: block;
     font-size: 25px;
     text-align: center;
 }
-#fouThree{
+#comFouThree{
     padding-top: 30px;
     display: block;
     font-weight: 600;
     font-size: 25px;
 }
-#fouFour{
+#comFouFour{
     padding-top: 10px;
     display: block;
     font-size: 20px;
 }
-div,span{
-    margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
 @media only screen and (max-width: 900px) {
-    #thirdPara{
+    #comThirdPara{
         flex-direction: column;
         width: 95%;
     }
-    #thiFlexBox{
+    #comThiFlexBox{
         width: 100%;
         margin-bottom: 20px;
     }
-    #firOne, #firTwo, #companyCap, #firThree, #secondPara, #fourthPara{
+    #comFirOne, #comFirTwo, #companyCap, #comFirThree, #comSecondPara, #comFourthPara{
         width: 95%;
     }
 }
