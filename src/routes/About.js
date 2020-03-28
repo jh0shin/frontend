@@ -4,7 +4,7 @@ import HomeImg from '../components/HomeImg'
 function About() {
   return (
     <div>
-      <HomeImg/>
+      {/* <HomeImg/> */}
     </div>
   );
 }

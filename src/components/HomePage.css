@@ -187,3 +187,85 @@
     text-decoration: none;
     color: #454545;
 }
+@media only screen and (max-width: 800px) {
+    #homeFirColor{
+        display: none;
+    }
+    #homeSecOne{
+        font-size: 4vw;
+    }
+    #homeLogoBig{
+        width: 60%;
+    }
+    #homeSecTwo{
+        font-size: 3vw;
+    }
+    #homeThirdPara{
+        width: 80%;
+        flex-direction: column;
+    }
+    #homeThiPic{
+        width: 40%;
+        margin: 0 auto;
+    }
+    #homeThiButton{
+        font-size: 2.5vw;
+    }
+    #selPara{
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    #selOne{
+        font-size: 3vw;
+    }
+    #selList{
+        margin-left: 20%;
+    }
+    #selListBody{
+        font-size: 3vw;
+    }
+    #selTwo{
+        height: 7vw;
+    }
+    #selButton{
+        width: 50%;
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    #homeThiFlex{
+        width: 100%;
+    }
+    #homeThirdPara{
+        width: 80%;
+        flex-direction: column;
+    }
+    #homeThiPic{
+        width: 40%;
+        margin: 0 auto;
+    }
+    #homeThiButton{
+        font-size: 2.5vw;
+    }
+    #homeFourthPara{
+        width: 100%;
+    }
+    #homeFouOne{
+        font-size: 40px;
+    }
+    #homeFouTwo{
+        font-size: 2.5vw;
+    }
+    #homeFouFlex{
+        width: 80%;
+    }
+    #homeFouDot{
+        display: none;
+    }
+    .homeFouButton{
+        width: 30%;
+    }
+}
