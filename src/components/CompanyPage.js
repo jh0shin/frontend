@@ -1,9 +1,9 @@
 import React from 'react';
 import './CompanyPage.css';
 import companyCap from '../img/companyCap.png'
-import companyPic1 from '../img/companyPic1.png'
-import companyPic2 from '../img/companyPic2.png'
-import companyPic3 from '../img/companyPic3.png'
+import companyPic1 from '../img/companyPic1.svg'
+import companyPic2 from '../img/companyPic2.svg'
+import companyPic3 from '../img/companyPic3.svg'
 
 function CompanyPage() {
   return (

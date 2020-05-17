@@ -1,6 +1,8 @@
 #comPage{
     color: #454545;
     word-break: keep-all;
+    font-family : 'Nanum Gothic';
+    line-height: 1.4;
 }
 #comFirstPara{
     background-color: #ffed49;
@@ -56,10 +58,13 @@
     text-align: center;
 }
 #companyPic{
-    width: 100%;
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-#compantText{
-    font-size: 15px;
+#companyText{
+    font-size: 20px;
+    font-weight: 600;
 }
 #comThirdColor{
     background-color: white;
@@ -75,7 +80,8 @@
 #comThiFlexBox{
     background-color: #f9f9f9;
     display: inline-block;
-    width: 48%;
+    width: 45%;
+    padding: 20px;
 }
 #comThiOne{
     display: block;
@@ -119,11 +125,11 @@
 }
 #comFouLine{
     width: 150px;
-    margin: 0 auto;
+    margin: 20px auto;
     border: 2px solid #454545;
 }
 #comFouOne{
-    padding-top: 10px;
+    padding-top: 20px;
     display: block;
     font-size: 40px;
     text-align: center;
@@ -133,6 +139,7 @@
     display: block;
     font-size: 25px;
     text-align: center;
+    padding-bottom: 20px;
 }
 #comFouThree{
     padding-top: 30px;

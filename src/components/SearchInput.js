@@ -42,10 +42,10 @@ class SearchInput extends React.Component {
         var reformedAdd = [];
 
         pageShow.map(pageShow => {
-          addReform = pageShow.hadd.split(' ')
+          addReform = pageShow.addr.split(' ')
           reformedAdd.push({
             add: addReform[0] + ' ' + addReform[1] + ' ' + addReform[2] + ' ' + addReform[3],
-            name: pageShow.hname
+            name: pageShow.name
           })
         });
 
@@ -110,10 +110,21 @@ class SearchInput extends React.Component {
   handleInputClick = async () => {
     const searchResult = await axios.post(
       'http://hakwongo.com:3000/api/search/name',
-      { 'hakwonName': this.state.hakwonName }
+      { 
+        'name': this.state.hakwonName,
+        'limit' : '7',
+        'offset' : '0',
+        'sido' : '경기도',
+        'gungu' : '',
+        'subject' : '',
+        'grade' : '',
+        'lowprice' : '',
+        'highprice' : '',
+      }
     )
     this.setState({ rawData: searchResult.data })
     this.handleData()
+    console.log(searchResult)
     this.showMap()
   }
 
@@ -159,11 +170,10 @@ class SearchInput extends React.Component {
           <div className="hakwonResult">
             {pageShow.map((pageShow, index) => {
               return <SearchResultBox
-                name={pageShow.hname}
-                subject={pageShow.hcall}
-                address={pageShow.hadd}
-                price={pageShow.hnum}
-                key={index}
+                name={pageShow.name}
+                subject={pageShow.callnum}
+                address={pageShow.addr}
+                key={pageShow.id}
               />
             })}
             <br />

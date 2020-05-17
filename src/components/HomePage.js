@@ -106,7 +106,7 @@ function HomeSelOne(){
         <li id = "selListBody">객관적인 학원 추천 레포트 제공</li>
         <li id = "selListBody">위클리 교육뉴스 제공</li>
       </ul>
-      <button id = "selButton" onClick={onClickAlert}>레포트 예상 견적 확인</button>
+      <Link id = "selButton" to="/Reportsurvey">레포트 예상 견적 확인</Link>
     </div>
   );
 }

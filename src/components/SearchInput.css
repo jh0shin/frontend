@@ -1,5 +1,5 @@
 .searchBody{
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
 }
 .searchInputField{
@@ -10,11 +10,11 @@
     width: 100%;
 }
 .hakwonResult{
-    width: 40%;
+    width: 50%;
     float: left;
 }
 .mapResult{
-    width: 60%;
+    width: 45%;
     height: 800px;
     float: left;
     margin-bottom: 20px;

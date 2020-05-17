@@ -1,0 +1,65 @@
+.reportsurveyBody{
+    width : 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    font-family : 'Nanum Gothic';
+    line-height: 1.4;
+    color: #454545;
+    word-break: keep-all;
+}
+.reportsurveyTitle{
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 600;
+}
+.reportsurveyExp{
+    margin-top: 20px;
+    font-size: 30px;
+}
+.reportsurveyCompBody{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #454545;
+    padding-bottom: 30px;
+}
+.reportsurveyCompTitle{
+    margin: 30px auto;
+    font-size: 30px;
+    font-weight: 600;
+}
+.reportsurveyCompButton{
+    font-size: 25px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: -1px;
+    text-align: left;
+    border: 1px solid #454545;
+    background-color: white;
+    padding: 5px;
+    padding-left: 40px;
+}
+.reportsurveyCompBN{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.reportsurveyCompBack{
+    font-size: 25px;
+    width: 30%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.reportsurveyCompNext{
+    font-size: 25px;
+    color: white;
+    width: 30%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #ff4242;
+}
