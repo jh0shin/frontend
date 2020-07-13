@@ -1,270 +1,270 @@
-#homePage{
-    font-family : 'Nanum Gothic';
-    line-height: 1.4;
-    color: #454545;
-    word-break: keep-all;
+#homePage {
+	font-family: 'Nanum Gothic';
+	line-height: 1.4;
+	color: #454545;
+	word-break: keep-all;
 }
-#homeFirColor{
-    background-color: #ffed49;
+#homeFirColor {
+	background-color: #ffed49;
 }
-#homeFirstPara{
-    display: flex;
-    margin: 0 auto;
-    width: 700px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    flex-wrap: wrap;
-    line-height: 1.3;
+#homeFirstPara {
+	display: flex;
+	margin: 0 auto;
+	width: 700px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	flex-wrap: wrap;
+	line-height: 1.3;
 }
-#homeFirOne{
-    width: 40%;
-    font-size: 50px;
-    font-weight: 500;
+#homeFirOne {
+	width: 40%;
+	font-size: 50px;
+	font-weight: 500;
 }
-#homeFirTwo{
-    width: 60%;
-    padding-top: 100px;
+#homeFirTwo {
+	width: 60%;
+	padding-top: 100px;
 }
-#homeFirLine{
-    width: 95%;
-    border: 3px solid #454545;
+#homeFirLine {
+	width: 95%;
+	border: 3px solid #454545;
 }
-#homeSecondPara{
-    background-color: #f9f9f9;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    display: flex;
-    flex-direction: column;
+#homeSecondPara {
+	background-color: #f9f9f9;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	display: flex;
+	flex-direction: column;
 }
-#homeSecLine{
-    width: 150px;
-    border: 2px solid #454545;
-    margin: 0 auto;
+#homeSecLine {
+	width: 150px;
+	border: 2px solid #454545;
+	margin: 0 auto;
 }
-#homeSecOne{
-    margin: 0 auto;
-    font-size: 40px;
-    font-weight: 600;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    text-align: center;
+#homeSecOne {
+	margin: 0 auto;
+	font-size: 40px;
+	font-weight: 600;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	text-align: center;
 }
-#homeLogoBig{
-    width: 500px;
-    margin: 0 auto;
+#homeLogoBig {
+	width: 500px;
+	margin: 0 auto;
 }
-#homeSecTwo{
-    margin: 0 auto;
-    font-size: 30px;
-    padding-top: 30px;
-    text-align: center;
+#homeSecTwo {
+	margin: 0 auto;
+	font-size: 30px;
+	padding-top: 30px;
+	text-align: center;
 }
-#homeThirdPara{
-    width: 80%;
-    max-width: 1000px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
+#homeThirdPara {
+	width: 80%;
+	max-width: 1000px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
-#homeThiFlex{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
+#homeThiFlex {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
 }
-#homeThiPic{
-    width: 100%;
+#homeThiPic {
+	width: 100%;
 }
-#homeThiOne{
-    width: 100%;
-    text-align: center;
-    padding-top: 20px;
-    font-size: 30px;
-    font-weight: 600;
+#homeThiOne {
+	width: 100%;
+	text-align: center;
+	padding-top: 20px;
+	font-size: 30px;
+	font-weight: 600;
 }
-#homeThiTwo{
-    padding-top: 10px;
-    font-size: 20px;
-    padding-bottom: 20px;
+#homeThiTwo {
+	padding-top: 10px;
+	font-size: 20px;
+	padding-bottom: 20px;
 }
-#homeThiButtons{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+#homeThiButtons {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
 }
-#homeThiButton{
-    width: 30%;
-    background-color: #ffed49;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    color: #454545;
+#homeThiButton {
+	width: 30%;
+	background-color: #ffed49;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	color: #454545;
 }
-#homeFouColor{
-    background-color: #f9f9f9;
+#homeFouColor {
+	background-color: #f9f9f9;
 }
-#homeFourthPara{
-    width: 1000px;
-    margin: 0 auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    display: flex;
-    flex-direction: column;
+#homeFourthPara {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	display: flex;
+	flex-direction: column;
 }
-#homeFouOne{
-    text-align: center;
-    font-size: 50px;
-    font-weight: 700;
-    padding-bottom: 20px;
+#homeFouOne {
+	text-align: center;
+	font-size: 50px;
+	font-weight: 700;
+	padding-bottom: 20px;
 }
-#homeFouTwo{
-    text-align: center;
-    font-size: 20px;
-    padding-bottom: 20px;
+#homeFouTwo {
+	text-align: center;
+	font-size: 20px;
+	padding-bottom: 20px;
 }
-#homeFouFlex{
-    width: 700px;
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-around;
-    padding-bottom: 20px;
+#homeFouFlex {
+	width: 700px;
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-around;
+	padding-bottom: 20px;
 }
-.homeFouButton{
-    width: 20%;
-    background-color: #f9f9f9;
+.homeFouButton {
+	width: 20%;
+	background-color: #f9f9f9;
 }
-.homeFouPic{
-    width: 100%;
+.homeFouPic {
+	width: 100%;
 }
-#homeFouDot{
-    font-size: 40px;
+#homeFouDot {
+	font-size: 40px;
 }
-#selPara{
-    width: 800px;
-    background-color: white;
-    padding: 30px;
-    font-weight: 600;
-    margin: 0 auto;
+#selPara {
+	width: 800px;
+	background-color: white;
+	padding: 30px;
+	font-weight: 600;
+	margin: 0 auto;
 }
-#selTitle{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 20px;
+#selTitle {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 20px;
 }
-#selOne{
-    font-size: 30px;
+#selOne {
+	font-size: 30px;
 }
-#selTwo{
-    margin-top: -3px;
-    height: 50px;
+#selTwo {
+	margin-top: -3px;
+	height: 50px;
 }
-#selList{
-    list-style-type:disc;
-    margin-left : 150px;
-    padding-bottom: 20px;
+#selList {
+	list-style-type: disc;
+	margin-left: 150px;
+	padding-bottom: 20px;
 }
-#selListBody{
-    font-size: 25px;
+#selListBody {
+	font-size: 25px;
 }
-#selButton{
-    display: block;
-    margin: 0 auto;
-    width: 400px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 20px;
-    font-weight: 600;
-    border-radius: 5px;
-    background-color: #ffed49;
-    text-align: center;
-    text-decoration: none;
-    color: #454545;
+#selButton {
+	display: block;
+	margin: 0 auto;
+	width: 400px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 20px;
+	font-weight: 600;
+	border-radius: 5px;
+	background-color: #ffed49;
+	text-align: center;
+	text-decoration: none;
+	color: #454545;
 }
 @media only screen and (max-width: 800px) {
-    #homeFirColor{
-        display: none;
-    }
-    #homeSecOne{
-        font-size: 4vw;
-    }
-    #homeLogoBig{
-        width: 60%;
-    }
-    #homeSecTwo{
-        font-size: 3vw;
-    }
-    #homeThirdPara{
-        width: 80%;
-        flex-direction: column;
-    }
-    #homeThiPic{
-        width: 40%;
-        margin: 0 auto;
-    }
-    #homeThiButton{
-        font-size: 2.5vw;
-    }
-    #selPara{
-        width: 100%;
-        padding-right: 0px;
-        padding-left: 0px;
-    }
-    #selOne{
-        font-size: 3vw;
-    }
-    #selList{
-        margin-left: 20%;
-    }
-    #selListBody{
-        font-size: 3vw;
-    }
-    #selTwo{
-        height: 7vw;
-    }
-    #selButton{
-        width: 50%;
-        font-size: 15px;
-        padding: 10px;
-    }
+	#homeFirColor {
+		display: none;
+	}
+	#homeSecOne {
+		font-size: 4vw;
+	}
+	#homeLogoBig {
+		width: 60%;
+	}
+	#homeSecTwo {
+		font-size: 3vw;
+	}
+	#homeThirdPara {
+		width: 80%;
+		flex-direction: column;
+	}
+	#homeThiPic {
+		width: 40%;
+		margin: 0 auto;
+	}
+	#homeThiButton {
+		font-size: 2.5vw;
+	}
+	#selPara {
+		width: 100%;
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	#selOne {
+		font-size: 3vw;
+	}
+	#selList {
+		margin-left: 20%;
+	}
+	#selListBody {
+		font-size: 3vw;
+	}
+	#selTwo {
+		height: 7vw;
+	}
+	#selButton {
+		width: 50%;
+		font-size: 15px;
+		padding: 10px;
+	}
 }
 
 @media only screen and (max-width: 1050px) {
-    #homeThiFlex{
-        width: 100%;
-    }
-    #homeThirdPara{
-        width: 80%;
-        flex-direction: column;
-    }
-    #homeThiPic{
-        width: 40%;
-        margin: 0 auto;
-    }
-    #homeThiButton{
-        font-size: 2.5vw;
-    }
-    #homeFourthPara{
-        width: 100%;
-    }
-    #homeFouOne{
-        font-size: 40px;
-    }
-    #homeFouTwo{
-        font-size: 2.5vw;
-    }
-    #homeFouFlex{
-        width: 80%;
-    }
-    #homeFouDot{
-        display: none;
-    }
-    .homeFouButton{
-        width: 30%;
-    }
+	#homeThiFlex {
+		width: 100%;
+	}
+	#homeThirdPara {
+		width: 80%;
+		flex-direction: column;
+	}
+	#homeThiPic {
+		width: 40%;
+		margin: 0 auto;
+	}
+	#homeThiButton {
+		font-size: 2.5vw;
+	}
+	#homeFourthPara {
+		width: 100%;
+	}
+	#homeFouOne {
+		font-size: 40px;
+	}
+	#homeFouTwo {
+		font-size: 2.5vw;
+	}
+	#homeFouFlex {
+		width: 80%;
+	}
+	#homeFouDot {
+		display: none;
+	}
+	.homeFouButton {
+		width: 30%;
+	}
 }

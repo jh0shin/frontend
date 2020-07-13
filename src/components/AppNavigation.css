@@ -3,7 +3,7 @@
 .topBar {
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
-	top: 0;  
+	top: 0;
 	z-index: 1000;
 	background-color: white;
 	padding-left: 100px;
@@ -16,9 +16,9 @@
 .centerImg {
 	margin-left: 20px;
 	height: 70px;
-	width: 190px; 
+	width: 190px;
 }
-.topBar a{
+.topBar a {
 	float: right;
 	color: #666;
 	text-align: center;
@@ -32,7 +32,7 @@
 .topBar a:hover {
 	color: gray;
 }
-#mainLink{
+#mainLink {
 	height: 70px;
 	float: left;
 	padding: 0px;
@@ -51,7 +51,7 @@
 @media only screen and (max-width: 720px) {
 	.centerImg {
 		margin-left: 0;
-		width: auto; 
+		width: auto;
 		height: 70px;
 	}
 	.topBar a {
@@ -64,7 +64,7 @@
 		height: 40px;
 	}
 	.centerImg {
-		width: auto; 
+		width: auto;
 		height: 40px;
 	}
 	.topBar a {
@@ -74,7 +74,7 @@
 		margin-top: 7px;
 		padding-bottom: 0px;
 	}
-	#mainLink{
+	#mainLink {
 		height: 40px;
 	}
 }

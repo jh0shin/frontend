@@ -1,55 +1,55 @@
-#HomeAdd{
-    position: absolute;
-    top: -70px;
+#HomeAdd {
+	position: absolute;
+	top: -70px;
 }
-.addField{
-    height: 500px;
-    width: 100%;
-    background-color: white;
-    position: relative;
+.addField {
+	height: 500px;
+	width: 100%;
+	background-color: white;
+	position: relative;
 }
-.addBigImg{
-    display: block;
-    margin: 0px auto;
-    height: 100%;
+.addBigImg {
+	display: block;
+	margin: 0px auto;
+	height: 100%;
 }
-.addSmallImg{
-    display: none;
+.addSmallImg {
+	display: none;
 }
-.inputStyle{
-    position: absolute;
-    top: 400px;
-    left: 50%;
-    margin-left: -170px;
+.inputStyle {
+	position: absolute;
+	top: 400px;
+	left: 50%;
+	margin-left: -170px;
 }
-.inputStyleSmall{
-    display: none;
+.inputStyleSmall {
+	display: none;
 }
-#HomeAddText{
-    padding: 20px;
-    font-size: 30px;
-    font-weight: 600;
+#HomeAddText {
+	padding: 20px;
+	font-size: 30px;
+	font-weight: 600;
 }
 @media only screen and (max-width: 950px) {
-    .addBigImg{
-        display: none;
-    }
-    .addSmallImg {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-    .inputStyle{
-        display: none;
-    }
-    .inputStyleSmall{
-        display: inline-block;
-        width: 100%;
-        color: #ffb13f;
-        text-align: center;
-        padding-bottom: 20px;
-    }
-    .addField{
-        height: auto;
-    }
+	.addBigImg {
+		display: none;
+	}
+	.addSmallImg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.inputStyle {
+		display: none;
+	}
+	.inputStyleSmall {
+		display: inline-block;
+		width: 100%;
+		color: #ffb13f;
+		text-align: center;
+		padding-bottom: 20px;
+	}
+	.addField {
+		height: auto;
+	}
 }

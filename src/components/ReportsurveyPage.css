@@ -1,76 +1,76 @@
-.reportsurveyBody{
-    width : 80%;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    font-family : 'Nanum Gothic';
-    line-height: 1.4;
-    color: #454545;
-    word-break: keep-all;
+.reportsurveyBody {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	font-family: 'Nanum Gothic';
+	line-height: 1.4;
+	color: #454545;
+	word-break: keep-all;
 }
-.reportsurveyTitle{
-    margin-top: 30px;
-    font-size: 40px;
-    font-weight: 600;
+.reportsurveyTitle {
+	margin-top: 30px;
+	font-size: 40px;
+	font-weight: 600;
 }
-.reportsurveyExp{
-    margin-top: 20px;
-    font-size: 30px;
+.reportsurveyExp {
+	margin-top: 20px;
+	font-size: 30px;
 }
-.reportsurveyProg{
-    height: 10px;
-    width: 100%;
+.reportsurveyProg {
+	height: 10px;
+	width: 100%;
 }
-.reportsurveyCompBody{
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #454545;
-    border-top: none;
-    padding-bottom: 30px;
+.reportsurveyCompBody {
+	width: 100%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #454545;
+	border-top: none;
+	padding-bottom: 30px;
 }
-.reportsurveyCompTitle{
-    margin: 30px auto;
-    font-size: 30px;
-    font-weight: 600;
+.reportsurveyCompTitle {
+	margin: 30px auto;
+	font-size: 30px;
+	font-weight: 600;
 }
-.reportsurveyCompButton{
-    font-size: 25px;
-    width: 80%;
-    margin: 0 auto;
-    margin-top: -1px;
-    text-align: left;
-    border: 1px solid #454545;
-    background-color: white;
-    padding: 5px;
-    padding-left: 40px;
+.reportsurveyCompButton {
+	font-size: 25px;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: -1px;
+	text-align: left;
+	border: 1px solid #454545;
+	background-color: white;
+	padding: 5px;
+	padding-left: 40px;
 }
-.reportsurveyCompBN{
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
+.reportsurveyCompBN {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-between;
 }
-.reportsurveyCompBack{
-    font-size: 25px;
-    width: 30%;
-    text-align: center;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+.reportsurveyCompBack {
+	font-size: 25px;
+	width: 30%;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #f9f9f9;
 }
-.reportsurveyCompNext{
-    font-size: 25px;
-    color: white;
-    width: 30%;
-    text-align: center;
-    border-radius: 5px;
-    background-color: #ff4242;
+.reportsurveyCompNext {
+	font-size: 25px;
+	color: white;
+	width: 30%;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #ff4242;
 }
-.reportsurveyField{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    margin: 0 auto;
+.reportsurveyField {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	margin: 0 auto;
 }

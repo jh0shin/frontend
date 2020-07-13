@@ -1,79 +1,79 @@
-.back{
-    color : #ffb13f;
-    text-align: center;
-    margin: 0px;
+.back {
+	color: #ffb13f;
+	text-align: center;
+	margin: 0px;
 }
-.buttonImg{
-    display: block;
-    margin: 0;
-    height: 47px;
-    width: auto;
+.buttonImg {
+	display: block;
+	margin: 0;
+	height: 47px;
+	width: auto;
 }
-.searchInput{
-    padding-left: 5px;
-    margin: 0;
-    height: 37px;
-    width: 440px;
-    border: solid;
-    border-width: 4px;
-    font-size: 20px;
-    color: gray;
+.searchInput {
+	padding-left: 5px;
+	margin: 0;
+	height: 37px;
+	width: 440px;
+	border: solid;
+	border-width: 4px;
+	font-size: 20px;
+	color: gray;
 }
-.inputBar{
-    margin-left:auto;
-    margin-right:auto;
-    font-size: 20px;
-    color: gray;
-    display: flex;
-    justify-content: center;
+.inputBar {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 20px;
+	color: gray;
+	display: flex;
+	justify-content: center;
 }
-.searchButton{
+.searchButton {
 	border: none;
 	margin: 0px;
 	padding: 0px;
 }
-.inputInfo{
-    margin-left:auto;
-    margin-right:auto;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 15px;
-    text-align: left;
-    color: gray;
-    width: 600px;
-    display: block;
+.inputInfo {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 15px;
+	text-align: left;
+	color: gray;
+	width: 600px;
+	display: block;
 }
 
 @media only screen and (max-width: 600px) {
-	.inputBar{
-        width: 455px;
-    }
-    .searchInput{
-        width: 300px;
-        font-size: 15px;
-    }
-    .inputInfo{
-        font-size: 2.5vw;
-        width: 455px;
-    }
+	.inputBar {
+		width: 455px;
+	}
+	.searchInput {
+		width: 300px;
+		font-size: 15px;
+	}
+	.inputInfo {
+		font-size: 2.5vw;
+		width: 455px;
+	}
 }
 
 @media only screen and (max-width: 500px) {
-	.inputBar{
-        width: 100%;
-        display: flex;
-    }
-    .searchInput{
-        display: flex;
-        font-size: 15px;
-        flex: 1 1;
-    }
-    .searchButton{
-        display: flex;
-        flex: 0 0;
-        height: 47px;
-    }
-    .inputInfo{
-        width: 100%;
-    }
+	.inputBar {
+		width: 100%;
+		display: flex;
+	}
+	.searchInput {
+		display: flex;
+		font-size: 15px;
+		flex: 1 1;
+	}
+	.searchButton {
+		display: flex;
+		flex: 0 0;
+		height: 47px;
+	}
+	.inputInfo {
+		width: 100%;
+	}
 }
