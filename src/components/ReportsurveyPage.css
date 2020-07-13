@@ -17,12 +17,17 @@
     margin-top: 20px;
     font-size: 30px;
 }
+.reportsurveyProg{
+    height: 10px;
+    width: 100%;
+}
 .reportsurveyCompBody{
-    width: 60%;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
     border: 1px solid #454545;
+    border-top: none;
     padding-bottom: 30px;
 }
 .reportsurveyCompTitle{
@@ -62,4 +67,10 @@
     text-align: center;
     border-radius: 5px;
     background-color: #ff4242;
+}
+.reportsurveyField{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
 }

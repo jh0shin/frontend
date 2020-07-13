@@ -55,7 +55,10 @@ function HomeOfflineInput(){
       <input className="textInput" type="text" value={grade} onChange={onChangeGrade}  name="childGrage" placeholder="자녀 학년"/>
       <input className="textInput" type="text" value={school} onChange={onChangeSchool} name="childSchool" placeholder="자녀 학교"/>
       <textarea className="massageInput" type="text" value={etc} onChange={onChangeEtc} name="message" rows="10" cols="30" placeholder="기타 요청 사항 (관심 과목, 성적대, 성향 등)"/>
-      <label className="checkbox"><input className="checkbox" type="checkbox" onChange={ () => setIsChecked(!isChecked) } name="agree"/>개인정보 수집 및 이용에 동의합니다.</label>
+      <div className = "checkboxFlex">
+        <label className="checkbox"><input type="checkbox" onChange={ () => setIsChecked(!isChecked) } name="agree"/></label>
+        <span className="checkboxLabel">개인정보 수집 및 이용에 동의합니다</span>
+      </div>
       <button onClick={ isChecked
         ? onClickChecked
         : () => {alert.error("개인정보 동의 및 이용에 체크해 주십시오");}

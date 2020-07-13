@@ -51,7 +51,10 @@ function HomeLectureInput(){
       <input className="textInput" value={email} onChange={onChangeEmail} type="text" name="email" placeholder="이메일"/>
       <input className="textInput" value={location} onChange={onChangeLocation} type="text" name="place" placeholder="강연 지역"/>
       <textarea className="massageInput" value={etc} onChange={onChangeEtc} type="text" name="message" rows="10" cols="30" placeholder="기타 요청 사항 (관심 과목, 성적대, 성향 등)"/>
-      <label className="checkbox"><input type="checkbox" onChange={ () => setIsChecked(!isChecked) } name="agree"/>개인정보 수집 및 이용에 동의합니다.</label>
+      <div className = "checkboxFlex">
+        <label className="checkbox"><input type="checkbox" onChange={ () => setIsChecked(!isChecked) } name="agree"/></label>
+        <span className="checkboxLabel">개인정보 수집 및 이용에 동의합니다</span>
+      </div>
       <button onClick={ isChecked 
         ? onClickChecked
         : () => { alert.error("개인정보 동의 및 이용에 체크해 주십시오"); }

@@ -5,6 +5,7 @@ class ReportsurveyPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      prog : 10,
       grade : 0,
       subject : 0,
       defaultOption : 0,
@@ -22,24 +23,56 @@ class ReportsurveyPage extends React.Component {
 
   onGradeCallback(gradeCall) {
     this.setState({grade : gradeCall});
+    if(gradeCall == 0){
+      this.setState({prog : 10});
+    }else{
+      this.setState({prog : 20});
+    }
   }
 
   onSubjectCallback(subjectCall) {
     this.setState({subject : subjectCall});
+    if(subjectCall == 0){
+      this.setState({prog : 20});
+    }else{
+      this.setState({prog : 30});
+    }
   }
 
   onOptionCallback(optionCall) {
     this.setState({defaultOption : optionCall});
+    if(optionCall == 0){
+      this.setState({prog : 30});
+    }else{
+      this.setState({prog : 40});
+    }
   }
 
   onQueOneCallback(queCall) {
     this.setState({queOne : queCall});
+    if(queCall == 0){
+      this.setState({prog : 40});
+    }else if(queCall == 1){
+      this.setState({prog : 50});
+    }else{
+      this.setState({prog : 70});
+    }
   }
   onQueTwoCallback(queCall) {
     this.setState({queTwo : queCall});
+    if(queCall == 0){
+      this.setState({prog : 50});
+    }else{
+      this.setState({prog : 60});
+    }
   }
   onQueThreeCallback(queCall) {
     this.setState({queThree : queCall});
+    if(queCall == 0){
+      this.setState({prog : 60});
+    }else{
+      this.setState({prog : 70});
+    }
   }
 
   render (){
@@ -63,21 +96,21 @@ class ReportsurveyPage extends React.Component {
               if(queThree == 0){
                 six = 1;
               }else if(queThree == 1){
-                result = 9;
+                result = <div>9번 옵션 <br/> 정가 30만원</div>;
               }else{
-                result = 3;
+                result = <div>3번 옵션 <br/> 정가 40만원</div>;
               }
             }else{
               if(queThree == 0){
                 six = 1;
               }else if(queThree == 1){
-                result = 4;
+                result = <div>1번 옵션 <br/> 정가 30만원</div>;
               }else{
-                result = 1;
+                result = <div>1번 옵션 <br/> 정가 40만원</div>;
               }
             }
           }else{
-            result = 2;
+            result = <div>2번 옵션 <br/> 정가 10만원/과목당</div>;
           }
         }
       }else if(subject == 2){
@@ -90,12 +123,12 @@ class ReportsurveyPage extends React.Component {
             if(queThree == 0){
               six = 1;
             }else if(queThree == 1){
-              result = 7;
+              result = <div>7번 옵션 <br/> 정가 40만원</div>;
             }else{
-              result = 5;
+              result = <div>5번 옵션 <br/> 정가 40만원</div>;
             }
           }else{
-            result = 2;
+            result = <div>2번 옵션 <br/> 정가 10만원/과목당</div>;
           }
         }
       }else{
@@ -108,12 +141,12 @@ class ReportsurveyPage extends React.Component {
             if(queThree == 0){
               six = 1;
             }else if(queThree == 1){
-              result = 8;
+              result = <div>8번 옵션 <br/> 정가 45만원</div>;
             }else{
-              result = 6;
+              result = <div>6번 옵션 <br/> 정가 45만원</div>;
             }
           }else{
-            result = 2;
+            result = <div>2번 옵션 <br/> 정가 10만원/과목당</div>;;
           }
         }
       }
@@ -122,13 +155,16 @@ class ReportsurveyPage extends React.Component {
       <div className = "reportsurveyBody">
         <div className = "reportsurveyTitle">학원고 Report</div>
         <div className = "reportsurveyExp">예상 견적 확인</div>
-        {one ? <ReportsurveyGrade gradeChange={this.onGradeCallback}/> : ""}
-        {two ? <ReportsurveySubject subjectChange={this.onSubjectCallback} gradeChange={this.onGradeCallback}/> : ""}
-        {three ? <ReportsurveyDefault optionChange={this.onOptionCallback} subjectChange={this.onSubjectCallback}/> : ""}
-        {four ? <ReportsurveyQuestion queChange={this.onQueOneCallback} queChangeBack={this.onOptionCallback}/> : ""}
-        {five ? <ReportsurveyQuestion queChange={this.onQueTwoCallback} queChangeBack={this.onQueOneCallback}/> : ""}
-        {six ? <ReportsurveyQuestion queChange={this.onQueThreeCallback} queChangeBack={this.onQueTwoCallback}/> : ""}
-        {result ? result : ""}
+        <div className = "reportsurveyField">
+          <progress className = "reportsurveyProg" value={this.state.prog} max="70" id="jb"></progress>
+          {one ? <ReportsurveyGrade gradeChange={this.onGradeCallback}/> : ""}
+          {two ? <ReportsurveySubject subjectChange={this.onSubjectCallback} gradeChange={this.onGradeCallback}/> : ""}
+          {three ? <ReportsurveyDefault optionChange={this.onOptionCallback} subjectChange={this.onSubjectCallback}/> : ""}
+          {four ? <ReportsurveyQuestion queChange={this.onQueOneCallback} option = "학원별 점수 추천사유 공개" queChangeBack={this.onOptionCallback}/> : ""}
+          {five ? <ReportsurveyQuestion queChange={this.onQueTwoCallback} option = "자문료의 절반 환불" queChangeBack={this.onQueOneCallback}/> : ""}
+          {six ? <ReportsurveyQuestion queChange={this.onQueThreeCallback} option = "월 2회 면담" queChangeBack={this.onQueTwoCallback}/> : ""}
+          {result ? result : ""}
+        </div>
       </div>
     )
   }
@@ -271,6 +307,7 @@ class ReportsurveyDefault extends Component{
     return(
       <div className = "reportsurveyCompBody">
         <div className = "reportsurveyCompTitle">기본 제공 항목은 다음과 같습니다.</div>
+        <div>학습 성향 진단 <br/> 추천 학원 제시 <br/> 중장기 학습전략 제시</div>
         <div className = "reportsurveyCompBN">
           <button className = "reportsurveyCompBack" onClick={this.defaultClickBack}>뒤로</button>
           <button className = "reportsurveyCompNext" onClick={this.defaultClickNext}>다음</button>
@@ -302,6 +339,7 @@ class ReportsurveyQuestion extends Component{
     return(
       <div className = "reportsurveyCompBody">
         <div className = "reportsurveyCompTitle">옵션</div>
+        <div>{this.props.option}</div>
         <div className = "reportsurveyCompBN">
           <button className = "reportsurveyCompBack" onClick={this.defaultClickBack}>뒤로</button>
           <button className = "reportsurveyCompBack" id="2" onClick={this.defaultClickNext}>괜찮아요</button>
