@@ -62,18 +62,21 @@ class SearchInput extends React.Component {
 				var addReform = [];
 				var reformedAdd = [];
 
-				pageShow.map((pageShow) => {
+				let formap = [];
+
+				formap = pageShow.map((pageShow) => {
 					addReform = pageShow.addr.split(' ');
 					reformedAdd.push({
 						add: addReform[0] + ' ' + addReform[1] + ' ' + addReform[2] + ' ' + addReform[3],
 						name: pageShow.name
 					});
+					return '';
 				});
 
 				var geocoder = new kakao.maps.services.Geocoder();
 				var markers = [];
 
-				reformedAdd.map((reformedAdd) => {
+				formap = reformedAdd.map((reformedAdd) => {
 					geocoder.addressSearch(reformedAdd.add, function(result, status) {
 						if (status === kakao.maps.services.Status.OK) {
 							var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -96,6 +99,7 @@ class SearchInput extends React.Component {
 							infowindow.open(map, marker);
 						}
 					});
+					return '';
 				});
 			});
 		};
@@ -141,12 +145,13 @@ class SearchInput extends React.Component {
 			offset: this.state.offset,
 			sido: this.state.sido,
 			gungu: this.state.gungu,
+			dong: '',
 			subject: '',
 			grade: '',
 			lowprice: '',
 			highprice: ''
 		});
-		// console.log(searchResult.data[0])
+		console.log(searchResult.data);
 		this.setState({ rawData: searchResult.data });
 		this.handleData();
 		this.showMap();
@@ -433,61 +438,61 @@ class SearchInput extends React.Component {
 		this.setState({ sido: option.label });
 		this.setState({ sidoLabel: option.label });
 
-		if (option.label == '서울') {
+		if (option.label === '서울') {
 			this.setState({ gunguOptions: seoulOptions });
-		} else if (option.label == '경기도') {
+		} else if (option.label === '경기도') {
 			this.setState({ gunguOptions: gyunggiOptions });
-		} else if (option.label == '경기도 수원시') {
+		} else if (option.label === '경기도 수원시') {
 			this.setState({ gunguOptions: suwonOptions });
-		} else if (option.label == '경기도 안양시') {
+		} else if (option.label === '경기도 안양시') {
 			this.setState({ gunguOptions: anyangOptions });
-		} else if (option.label == '경기도 고양시') {
+		} else if (option.label === '경기도 고양시') {
 			this.setState({ gunguOptions: goyangOptions });
-		} else if (option.label == '경기도 용인시') {
+		} else if (option.label === '경기도 용인시') {
 			this.setState({ gunguOptions: yonginOptions });
-		} else if (option.label == '경기도 안산시') {
+		} else if (option.label === '경기도 안산시') {
 			this.setState({ gunguOptions: ansanOptions });
-		} else if (option.label == '강원도') {
+		} else if (option.label === '강원도') {
 			this.setState({ gunguOptions: gangwonOptions });
-		} else if (option.label == '충청북도') {
+		} else if (option.label === '충청북도') {
 			this.setState({ gunguOptions: chungbukOptions });
-		} else if (option.label == '충청북도 청주시') {
+		} else if (option.label === '충청북도 청주시') {
 			this.setState({ gunguOptions: cungjuOptions });
-		} else if (option.label == '충청남도') {
+		} else if (option.label === '충청남도') {
 			this.setState({ gunguOptions: chungnamOptions });
-		} else if (option.label == '충청남도 천안시') {
+		} else if (option.label === '충청남도 천안시') {
 			this.setState({ gunguOptions: chunanOptions });
-		} else if (option.label == '전라북도') {
+		} else if (option.label === '전라북도') {
 			this.setState({ gunguOptions: junbukOptions });
-		} else if (option.label == '전라북도 전주시') {
+		} else if (option.label === '전라북도 전주시') {
 			this.setState({ gunguOptions: gyunjuOptions });
-		} else if (option.label == '전라남도') {
+		} else if (option.label === '전라남도') {
 			this.setState({ gunguOptions: junnamOptions });
-		} else if (option.label == '경상북도') {
+		} else if (option.label === '경상북도') {
 			this.setState({ gunguOptions: gyeongbukOptions });
-		} else if (option.label == '경상북도 포항시') {
+		} else if (option.label === '경상북도 포항시') {
 			this.setState({ gunguOptions: pohangOptions });
-		} else if (option.label == '경상남도') {
+		} else if (option.label === '경상남도') {
 			this.setState({ gunguOptions: gyeongnamOptions });
-		} else if (option.label == '경상남도 창원시') {
+		} else if (option.label === '경상남도 창원시') {
 			this.setState({ gunguOptions: changwonOptions });
-		} else if (option.label == '부산') {
+		} else if (option.label === '부산') {
 			this.setState({ gunguOptions: busanOptions });
-		} else if (option.label == '대구') {
+		} else if (option.label === '대구') {
 			this.setState({ gunguOptions: deguOptions });
-		} else if (option.label == '인천') {
+		} else if (option.label === '인천') {
 			this.setState({ gunguOptions: inchunOptions });
-		} else if (option.label == '광주') {
+		} else if (option.label === '광주') {
 			this.setState({ gunguOptions: guangjuOptions });
-		} else if (option.label == '대전') {
+		} else if (option.label === '대전') {
 			this.setState({ gunguOptions: dejunOptions });
-		} else if (option.label == '울산') {
+		} else if (option.label === '울산') {
 			this.setState({ gunguOptions: ulsanOptions });
-		} else if (option.label == '제주특별자치도') {
+		} else if (option.label === '제주특별자치도') {
 			this.setState({ gunguOptions: jejuOptions });
-		} else if (option.label == '세종특별자치시') {
+		} else if (option.label === '세종특별자치시') {
 			this.setState({ gunguOptions: sejongOptions });
-		} else if (option.label == '모두 선택') {
+		} else if (option.label === '모두 선택') {
 			this.setState({ gunguOptions: allOptions });
 			this.setState({ sido: '' });
 		}
@@ -496,9 +501,9 @@ class SearchInput extends React.Component {
 	onSelectGungu = (option) => {
 		this.setState({ gungu: option.label });
 		this.setState({ gunguLabel: option.label });
-		if (option.label == '모두 선택') {
+		if (option.label === '모두 선택') {
 			this.setState({ gungu: '' });
-		} else if (option.label == '시,도를 선택해주세요') {
+		} else if (option.label === '시,도를 선택해주세요') {
 			this.setState({ gungu: '' });
 		}
 	};
@@ -506,7 +511,7 @@ class SearchInput extends React.Component {
 	onSelectSub = (option) => {
 		this.setState({ subject: option.label });
 		this.setState({ subjectLabel: option.label });
-		if (option.label == '모두 선택') {
+		if (option.label === '모두 선택') {
 			this.setState({ subject: '' });
 		}
 	};
@@ -514,7 +519,7 @@ class SearchInput extends React.Component {
 	onSelectGrade = (option) => {
 		this.setState({ grade: option.label });
 		this.setState({ gradeLabel: option.label });
-		if (option.label == '모두 선택') {
+		if (option.label === '모두 선택') {
 			this.setState({ grade: '' });
 		}
 	};
@@ -522,7 +527,7 @@ class SearchInput extends React.Component {
 	handleSlider = (e) => {
 		this.setState({ maxPrice: e[1] + '만원' });
 		this.setState({ minPrice: e[0] + '만원' });
-		if (e[1] == 101) {
+		if (e[1] === 101) {
 			this.setState({ maxPrice: '제한없음' });
 		}
 	};
@@ -579,7 +584,7 @@ class SearchInput extends React.Component {
 		}
 
 		let plus = <div className="none" />;
-		if (this.state.rawData.length == 71) {
+		if (this.state.rawData.length === 71) {
 			plus = (
 				<button className="pageButton" onClick={this.handlePagePlus}>
 					&#62;
@@ -588,6 +593,20 @@ class SearchInput extends React.Component {
 		} else {
 			plus = <div className="none" />;
 		}
+
+		let resultButton = pageShow.map((pageShow) => {
+			return (
+				<SearchResultBox name={pageShow.name} subject={pageShow.callnum} address={pageShow.addr} key={pageShow.id} />
+			);
+		});
+
+		let pageButton = pageNum.map((pageNum) => {
+			return (
+				<button className="pageButton" onClick={this.handlePageClick} key={pageNum.key} id={pageNum.key}>
+					{pageNum.key}
+				</button>
+			);
+		});
 
 		return (
 			<div className="searchBody">
@@ -666,25 +685,10 @@ class SearchInput extends React.Component {
 							className="dropdown"
 							menuClassName="dropdownMenu"
 						/>
-						{pageShow.map((pageShow) => {
-							return (
-								<SearchResultBox
-									name={pageShow.name}
-									subject={pageShow.callnum}
-									address={pageShow.addr}
-									key={pageShow.id}
-								/>
-							);
-						})}
+						{resultButton}
 						<br />
 						{minus}
-						{pageNum.map((pageNum) => {
-							return (
-								<button className="pageButton" onClick={this.handlePageClick} key={pageNum.key} id={pageNum.key}>
-									{pageNum.key}
-								</button>
-							);
-						})}
+						{pageButton}
 						{plus}
 					</div>
 					<div id="map" className="mapResult" />

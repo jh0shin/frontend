@@ -23,7 +23,7 @@ class ReportsurveyPage extends React.Component {
 
 	onGradeCallback(gradeCall) {
 		this.setState({ grade: gradeCall });
-		if (gradeCall == 0) {
+		if (gradeCall === 0) {
 			this.setState({ prog: 10 });
 		} else {
 			this.setState({ prog: 20 });
@@ -32,7 +32,7 @@ class ReportsurveyPage extends React.Component {
 
 	onSubjectCallback(subjectCall) {
 		this.setState({ subject: subjectCall });
-		if (subjectCall == 0) {
+		if (subjectCall === 0) {
 			this.setState({ prog: 20 });
 		} else {
 			this.setState({ prog: 30 });
@@ -41,7 +41,7 @@ class ReportsurveyPage extends React.Component {
 
 	onOptionCallback(optionCall) {
 		this.setState({ defaultOption: optionCall });
-		if (optionCall == 0) {
+		if (optionCall === 0) {
 			this.setState({ prog: 30 });
 		} else {
 			this.setState({ prog: 40 });
@@ -50,9 +50,9 @@ class ReportsurveyPage extends React.Component {
 
 	onQueOneCallback(queCall) {
 		this.setState({ queOne: queCall });
-		if (queCall == 0) {
+		if (queCall === 0) {
 			this.setState({ prog: 40 });
-		} else if (queCall == 1) {
+		} else if (queCall === 1) {
 			this.setState({ prog: 50 });
 		} else {
 			this.setState({ prog: 70 });
@@ -60,7 +60,7 @@ class ReportsurveyPage extends React.Component {
 	}
 	onQueTwoCallback(queCall) {
 		this.setState({ queTwo: queCall });
-		if (queCall == 0) {
+		if (queCall === 0) {
 			this.setState({ prog: 50 });
 		} else {
 			this.setState({ prog: 60 });
@@ -68,7 +68,7 @@ class ReportsurveyPage extends React.Component {
 	}
 	onQueThreeCallback(queCall) {
 		this.setState({ queThree: queCall });
-		if (queCall == 0) {
+		if (queCall === 0) {
 			this.setState({ prog: 60 });
 		} else {
 			this.setState({ prog: 70 });
@@ -84,24 +84,24 @@ class ReportsurveyPage extends React.Component {
 			six = 0,
 			result = 0;
 		const { grade, subject, defaultOption, queOne, queTwo, queThree } = this.state;
-		if (grade == 0) {
+		if (grade === 0) {
 			one = 1;
 		} else {
-			if (subject == 0) {
+			if (subject === 0) {
 				two = 1;
-			} else if (subject == 1) {
-				if (defaultOption == 0) {
+			} else if (subject === 1) {
+				if (defaultOption === 0) {
 					three = 1;
 				} else {
-					if (queOne == 0) {
+					if (queOne === 0) {
 						four = 1;
-					} else if (queOne == 1) {
-						if (queTwo == 0) {
+					} else if (queOne === 1) {
+						if (queTwo === 0) {
 							five = 1;
-						} else if (queTwo == 1) {
-							if (queThree == 0) {
+						} else if (queTwo === 1) {
+							if (queThree === 0) {
 								six = 1;
-							} else if (queThree == 1) {
+							} else if (queThree === 1) {
 								result = (
 									<div>
 										9번 옵션 <br /> 정가 30만원
@@ -115,9 +115,9 @@ class ReportsurveyPage extends React.Component {
 								);
 							}
 						} else {
-							if (queThree == 0) {
+							if (queThree === 0) {
 								six = 1;
-							} else if (queThree == 1) {
+							} else if (queThree === 1) {
 								result = (
 									<div>
 										1번 옵션 <br /> 정가 30만원
@@ -139,16 +139,16 @@ class ReportsurveyPage extends React.Component {
 						);
 					}
 				}
-			} else if (subject == 2) {
-				if (defaultOption == 0) {
+			} else if (subject === 2) {
+				if (defaultOption === 0) {
 					three = 1;
 				} else {
-					if (queOne == 0) {
+					if (queOne === 0) {
 						four = 1;
-					} else if (queOne == 1) {
-						if (queThree == 0) {
+					} else if (queOne === 1) {
+						if (queThree === 0) {
 							six = 1;
-						} else if (queThree == 1) {
+						} else if (queThree === 1) {
 							result = (
 								<div>
 									7번 옵션 <br /> 정가 40만원
@@ -170,15 +170,15 @@ class ReportsurveyPage extends React.Component {
 					}
 				}
 			} else {
-				if (defaultOption == 0) {
+				if (defaultOption === 0) {
 					three = 1;
 				} else {
-					if (queOne == 0) {
+					if (queOne === 0) {
 						four = 1;
-					} else if (queOne == 1) {
-						if (queThree == 0) {
+					} else if (queOne === 1) {
+						if (queThree === 0) {
 							six = 1;
-						} else if (queThree == 1) {
+						} else if (queThree === 1) {
 							result = (
 								<div>
 									8번 옵션 <br /> 정가 45만원
@@ -307,7 +307,7 @@ class ReportsurveySubject extends Component {
 	handleCheckbox(e) {
 		const { checkboxGroup, len } = this.state;
 		let obj = checkboxGroup;
-		if (e.target.checked == true) {
+		if (e.target.checked === true) {
 			if (len < 3) {
 				obj[e.target.value] = e.target.checked;
 				this.setState({ len: len + 1 });

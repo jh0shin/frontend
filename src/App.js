@@ -14,6 +14,7 @@ import Login from './routes/Login';
 import Company from './routes/Company';
 import Reportsurvey from './routes/Reportsurvey';
 import ContactList from './components/ContactList';
+import HakwonPage from './components/hakwonPage';
 // import Robots from './routes/Robots'
 
 function AppShow() {
@@ -30,6 +31,7 @@ function AppShow() {
 					<Route path="/company" component={Company} />
 					<Route path="/Reportsurvey" component={Reportsurvey} />
 					<Route path="/contactList" component={ContactList} />
+					<Route path="/hakwonPage" component={HakwonPage} />
 				</ScrollToTop>
 				{/* <Route path="/robots.txt" component={Robots}/> */}
 			</HashRouter>
