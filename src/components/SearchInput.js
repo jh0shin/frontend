@@ -2,10 +2,10 @@
 
 import React from 'react';
 import './SearchInput.css';
-import axios from 'axios';
 import SearchResultBox from './SearchResultBox';
 import Dropdown from 'react-dropdown';
 import ReactSlider from 'react-slider';
+import http from '../api';
 
 class SearchInput extends React.Component {
 	constructor(props) {
@@ -62,9 +62,7 @@ class SearchInput extends React.Component {
 				var addReform = [];
 				var reformedAdd = [];
 
-				let formap = [];
-
-				formap = pageShow.map((pageShow) => {
+				pageShow.map((pageShow) => {
 					addReform = pageShow.addr.split(' ');
 					reformedAdd.push({
 						add: addReform[0] + ' ' + addReform[1] + ' ' + addReform[2] + ' ' + addReform[3],
@@ -76,7 +74,7 @@ class SearchInput extends React.Component {
 				var geocoder = new kakao.maps.services.Geocoder();
 				var markers = [];
 
-				formap = reformedAdd.map((reformedAdd) => {
+				reformedAdd.map((reformedAdd) => {
 					geocoder.addressSearch(reformedAdd.add, function(result, status) {
 						if (status === kakao.maps.services.Status.OK) {
 							var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -139,19 +137,20 @@ class SearchInput extends React.Component {
 	};
 
 	handleInputClick = async () => {
-		const searchResult = await axios.post('http://hakwongo.com:3000/api/search/name', {
-			name: this.state.hakwonName,
+		const searchResult = await http.post('/api2/search/init', {
+			// name: this.state.hakwonName,
 			limit: '71',
-			offset: this.state.offset,
+			offset: '0',
 			sido: this.state.sido,
 			gungu: this.state.gungu,
 			dong: '',
 			subject: '',
-			grade: '',
-			lowprice: '',
-			highprice: ''
+			age: ''
+			// grade: '',
+			// lowprice: '',
+			// highprice: ''
 		});
-		console.log(searchResult.data);
+		console.log(searchResult);
 		this.setState({ rawData: searchResult.data });
 		this.handleData();
 		this.showMap();

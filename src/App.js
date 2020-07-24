@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, HashRouter, BrowserRouter } from 'react-router-dom';
+import { Route, HashRouter /*BrowserRouter*/ } from 'react-router-dom';
 import { positions, Provider } from 'react-alert';
 import ScrollToTop from './components/ScrollToTop';
 import AlertTemplate from 'react-alert-template-basic';
@@ -31,7 +31,7 @@ function AppShow() {
 					<Route path="/company" component={Company} />
 					<Route path="/Reportsurvey" component={Reportsurvey} />
 					<Route path="/contactList" component={ContactList} />
-					<Route path="/hakwonPage" component={HakwonPage} />
+					<Route path="/hakwonPage/:id" component={HakwonPage} />
 				</ScrollToTop>
 				{/* <Route path="/robots.txt" component={Robots}/> */}
 			</HashRouter>

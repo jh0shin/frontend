@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './HomeSelectField.css';
 import HomeOfflineInput from './HomeOfflineInput';
 import HomeLectureInput from './HomeLectureInput';

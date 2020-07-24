@@ -11,7 +11,7 @@ function HomeOfflineInput() {
 
 	const [ pname, setPname ] = useState('');
 	const [ sname, setSname ] = useState('');
-	const [ hcall, setHcall ] = useState('');
+	const [ hcall ] = useState('');
 	const [ address, setAddress ] = useState('');
 	const [ grade, setGrade ] = useState('');
 	const [ school, setSchool ] = useState('');
@@ -23,9 +23,9 @@ function HomeOfflineInput() {
 	const onChangeSname = (e) => {
 		setSname(e.target.value);
 	};
-	const onChangeHcall = (e) => {
-		setHcall(e.target.value);
-	};
+	// const onChangeHcall = (e) => {
+	// 	setHcall(e.target.value);
+	// };
 	const onChangeAddress = (e) => {
 		setAddress(e.target.value);
 	};

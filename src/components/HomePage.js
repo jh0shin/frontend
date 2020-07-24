@@ -25,9 +25,9 @@ function HomePage() {
 
 	let selectShow;
 
-	if (select == 2) {
+	if (select === 2) {
 		selectShow = <HomeSelTwo />;
-	} else if (select == 3) {
+	} else if (select === 3) {
 		selectShow = <HomeSelThree />;
 	} else {
 		selectShow = <HomeSelOne />;
@@ -124,11 +124,11 @@ function HomeThiFlex({ homePic, title, body }) {
 }
 
 function HomeSelOne() {
-	const alert = useAlert();
+	// const alert = useAlert();
 
-	const onClickAlert = () => {
-		alert.success('서비스 준비중입니다');
-	};
+	// const onClickAlert = () => {
+	// 	alert.success('서비스 준비중입니다');
+	// };
 
 	return (
 		<div id="selPara">

@@ -45,26 +45,44 @@ class hakwonPage extends React.Component {
 			add: '',
 			call: '',
 			founder: '',
-			hakwonClassInfo: []
+			hakwonClassInfo: [],
+			hasError: false,
+			loading: true
 		};
 	}
 
 	componentDidMount = async () => {
+		const { match: { params: { id } } } = this.props;
+
 		const { data: hakwonInfo } = await http.post('/api2/search/id', {
-			id: '2'
+			id: id
 		});
 		this.setState({ name: hakwonInfo[0].name });
 		this.setState({ add: hakwonInfo[0].addr });
 		this.setState({ call: hakwonInfo[0].callnum });
 		this.setState({ founder: hakwonInfo[0].founder });
-		const { data: hakwonClassInfo } = await http.post('/api2/classinfo', {
-			id: '2'
+
+		this.setState(() => {
+			http
+				.post('/api2/classinfo', {
+					id: id
+				})
+				.then((result) =>
+					this.setState({
+						loading: false,
+						hakwonClassInfo: [ ...result.data ]
+					})
+				);
 		});
-		this.setState({ hakwonClassInfo });
 	};
 
+	// componentDidCatch(error, info) {
+	// 	this.setState({ hasError: true });
+	// 	console.log(error, info);
+	// }
+
 	render() {
-		const { name, add, call, founder, hakwonClassInfo } = this.state;
+		const { name, add, call, founder, hakwonClassInfo, hasError, loading } = this.state;
 		const classList = hakwonClassInfo.map((hakwonClassInfo, index) => {
 			return (
 				<div key={index}>
@@ -76,6 +94,14 @@ class hakwonPage extends React.Component {
 				</div>
 			);
 		});
+
+		if (hasError) {
+			return <h1>Something went wrong.</h1>;
+		}
+
+		if (loading) {
+			return <h1>loading</h1>;
+		}
 
 		return (
 			<Body>
