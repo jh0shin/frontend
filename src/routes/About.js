@@ -1,8 +1,12 @@
 import React from 'react';
-// import HomeImg from '../components/HomeImg'
+import HomeAbout from '../components/HomeAbout';
 
 function About() {
-	return <div>{/* <HomeImg/> */}</div>;
+	return (
+		<div>
+			<HomeAbout />
+		</div>
+	);
 }
 
 export default About;

@@ -137,8 +137,8 @@ class SearchInput extends React.Component {
 	};
 
 	handleInputClick = async () => {
-		const searchResult = await http.post('/api2/search/init', {
-			// name: this.state.hakwonName,
+		const searchResult = await http.post('/api/search/name', {
+			name: this.state.hakwonName,
 			limit: '71',
 			offset: '0',
 			sido: this.state.sido,

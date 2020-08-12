@@ -17,6 +17,9 @@ import ContactList from './components/ContactList';
 import HakwonPage from './components/hakwonPage';
 // import Robots from './routes/Robots'
 
+import { connect } from 'react-redux';
+import { changeState, changeId, changeData } from './store/modules/login';
+
 function AppShow() {
 	return (
 		<div>
@@ -32,10 +35,10 @@ function AppShow() {
 					<Route path="/Reportsurvey" component={Reportsurvey} />
 					<Route path="/contactList" component={ContactList} />
 					<Route path="/hakwonPage/:id" component={HakwonPage} />
+					<AppBottom />
 				</ScrollToTop>
 				{/* <Route path="/robots.txt" component={Robots}/> */}
 			</HashRouter>
-			<AppBottom />
 		</div>
 	);
 }
@@ -51,8 +54,41 @@ const AlertFuction = () => (
 	</Provider>
 );
 
-function App() {
-	return <AlertFuction />;
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			// loading: true
+		};
+	}
+
+	componentDidMount = () => {
+		this.checkLogged();
+	};
+
+	checkLogged = () => {
+		const { changeState, changeId, changeData } = this.props;
+		changeId(localStorage.getItem('userId'));
+		changeData(JSON.parse(localStorage.getItem('userData')));
+		changeState(Boolean(localStorage.getItem('isLogin') === 'true'));
+		this.setState({ loading: false });
+	};
+
+	render() {
+		return <AlertFuction />;
+	}
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+	isLogin: state.login.isLogin,
+	userId: state.login.userId,
+	userData: state.login.userData
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	changeState: (isLogin) => dispatch(changeState(isLogin)),
+	changeId: (userId) => dispatch(changeId(userId)),
+	changeData: (userData) => dispatch(changeData(userData))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

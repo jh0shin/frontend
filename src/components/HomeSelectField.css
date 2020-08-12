@@ -1,7 +1,6 @@
 .field {
 	text-align: center;
-	background-color: #ffed49;
-	color: #454545;
+	color: #504f4b;
 	display: flex;
 	flex-direction: column;
 }
@@ -17,15 +16,17 @@
 	padding-bottom: 20px;
 }
 #companyButton {
-	width: 750px;
+	width: 710px;
 	margin: 20px auto;
-	background-color: white;
+	background-color: #fcf4cc;
 	text-decoration: none;
 	text-align: center;
-	color: #454545;
+	color: #504f4b;
 	font-size: 30px;
+	font-weight: 600;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	border-radius: 20px;
 }
 #companyNoButton {
 	margin-bottom: 40px;

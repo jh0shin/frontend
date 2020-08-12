@@ -3,6 +3,16 @@ import './HomeSelectField.css';
 import HomeOfflineInput from './HomeOfflineInput';
 import HomeLectureInput from './HomeLectureInput';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Color = styled.div`
+	background-color: #504f4b;
+	width: 100%;
+	height: 500px;
+	position: absolute;
+	top: 400px;
+	z-index: -10;
+`;
 
 class HomeSelectField extends React.Component {
 	render() {
@@ -21,6 +31,7 @@ class HomeSelectField extends React.Component {
 						<div id="companyNoButton" />
 					)}
 				</div>
+				<Color />
 			</div>
 		);
 	}

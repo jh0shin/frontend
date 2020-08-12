@@ -1,5 +1,4 @@
 #homePage {
-	font-family: 'Nanum Gothic';
 	line-height: 1.4;
 	color: #454545;
 	word-break: keep-all;
@@ -107,7 +106,7 @@
 	color: #454545;
 }
 #homeFouColor {
-	background-color: #f9f9f9;
+	background-color: none;
 }
 #homeFourthPara {
 	width: 1000px;
@@ -131,16 +130,18 @@
 #homeFouFlex {
 	width: 700px;
 	display: flex;
-	margin: 0 auto;
+	margin: 0px auto;
+	margin-top: 40px;
 	justify-content: space-around;
 	padding-bottom: 20px;
 }
 .homeFouButton {
-	width: 20%;
-	background-color: #f9f9f9;
+	background-color: transparent;
+	height: 60px;
+	width: 30%;
 }
 .homeFouPic {
-	width: 100%;
+	height: 50px;
 }
 #homeFouDot {
 	font-size: 40px;
@@ -148,9 +149,15 @@
 #selPara {
 	width: 800px;
 	background-color: white;
-	padding: 30px;
+	padding: 50px;
 	font-weight: 600;
-	margin: 0 auto;
+	border: 5px solid #504f4b;
+	border-radius: 10px;
+	color: #504f4b;
+	position: absolute;
+	top: 350px;
+	left: 50%;
+	margin-left: -450px;
 }
 #selTitle {
 	display: flex;
@@ -181,10 +188,10 @@
 	font-size: 20px;
 	font-weight: 600;
 	border-radius: 5px;
-	background-color: #ffed49;
+	background-color: #504f4b;
 	text-align: center;
 	text-decoration: none;
-	color: #454545;
+	color: white;
 }
 @media only screen and (max-width: 800px) {
 	#homeFirColor {

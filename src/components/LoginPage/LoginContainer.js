@@ -1,52 +1,108 @@
 import React from 'react';
-import styled from 'styled-components';
+import { connect } from 'react-redux';
+import LoginPresenter from './LoginPresenter';
+import { changeState, changeId, changeData } from '../../store/modules/login';
 
-function LoginPageCont({ name, subject, address, key }) {
-	return (
-		<Body>
-			<Text>카카오톡 간편 로그인</Text>
-			<Text>로그인 후 더 많은 혜택을 누리세요!</Text>
-			<KaKaoBtn
-				jsKey={'9f17d1af144fec8d4501c5e713f1c0a8'}
-				buttonText="KaKao"
-				onSuccess={this.responseKaKao}
-				onFailure={this.responseFail}
-				getProfile={true}
+class LoginContainer extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: 'kakao',
+			pageClse: false
+		};
+	}
+
+	componentDidMount = () => {
+		// console.log('mount');
+	};
+
+	loginWhenClose = () => {
+		const { pageClse } = this.state;
+		this.setState({});
+	};
+
+	responseKaKao = (res) => {
+		this.setState({
+			data: res
+		});
+		// console.log(this.state.data);
+		const { changeState, changeId, changeData } = this.props;
+		changeId(this.state.data.profile.id);
+		changeData(this.state.data);
+		changeState(true);
+		localStorage.setItem('isLogin', true);
+		localStorage.setItem('userId', this.state.data.profile.id);
+		localStorage.setItem('userData', JSON.stringify(this.state.data));
+		// console.log(JSON.parse(localStorage.getItem('userData'))); 다시 객체로 변형하기
+	};
+
+	responseFail = (err) => {
+		alert(err);
+	};
+
+	logout = () => {
+		const { changeState } = this.props;
+		changeState(false);
+		localStorage.setItem('isLogin', false);
+		localStorage.removeItem('userId');
+		localStorage.removeItem('userData');
+
+		// window.Kakao.Auth.logout(function() {
+		// 	alert('logout');
+		// });
+		// 카카오톡 제공 로그아웃 함수
+
+		if (!(window.Kakao === undefined)) {
+			window.Kakao.API.request({
+				url: '/v1/user/unlink',
+				success: function(res) {
+					// alert('success: ' + JSON.stringify(res));
+				},
+				fail: function(err) {
+					alert('fail: ' + JSON.stringify(err));
+				}
+			});
+		}
+	};
+
+	render() {
+		const { isLogin, userId, userData } = this.props;
+		// console.log(userData);
+		return (
+			<LoginPresenter
+				responseKaKao={this.responseKaKao}
+				responseFail={this.responseFail}
+				isLogin={isLogin}
+				userId={userId}
+				userData={userData}
+				logout={this.logout}
 			/>
-		</Body>
-	);
+		);
+	}
 }
 
-const Body = styled.div`
-	width: 80%;
-	margin: auto;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-`;
+// props 로 넣어줄 스토어 상태값
+const mapStateToProps = (state) => ({
+	isLogin: state.login.isLogin,
+	userId: state.login.userId,
+	userData: state.login.userData
+});
 
-const Text = styled.div`
-	margin: 10px;
-	font-size: 20px;
-`;
+// props 로 넣어줄 액션 생성함수
+const mapDispatchToProps = (dispatch) => ({
+	changeState: (isLogin) => dispatch(changeState(isLogin)),
+	changeId: (userId) => dispatch(changeId(userId)),
+	changeData: (userData) => dispatch(changeData(userData))
+});
 
-const KaKaoBtn = styled(KaKaoLogin)`
-		margin-top: 20px;
-    padding: 0;
-    width: 190px;
-    height: 44px;
-    line-height: 44px;
-    color: #783c00;
-    background-color: #FFEB00;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    &:hover{
-        box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.2)
-    }
-`;
+// 컴포넌트에 리덕스 스토어를 연동해줄 때에는 connect 함수 사용
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
 
-export default LoginPageCont;
+// 카카오 데이터 정리
+// profile.id : api에서 사용할 id
+// profile.kakao_account.email : 유저 이메일
+// profile.kakao_account.profile.nickname : 유저 카카오톡 이름
+// profile.kakao_account.profile.profile_image_url : 유저 카카오톡 프로필 이미지
+// profile.kakao_account.profile.thumbnail_image_url : 유저 카카오톡 썸네일
+// profile.response.access_token : 엑세스 토큰
+// profile.response.refresh_token : 리프레쉬 토큰
