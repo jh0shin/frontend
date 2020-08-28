@@ -57,6 +57,7 @@ class hakwonPage extends React.Component {
 		const { data: hakwonInfo } = await http.post('/api2/search/id', {
 			id: id
 		});
+
 		this.setState({ name: hakwonInfo[0].name });
 		this.setState({ add: hakwonInfo[0].addr });
 		this.setState({ call: hakwonInfo[0].callnum });

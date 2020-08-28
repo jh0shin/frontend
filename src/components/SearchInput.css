@@ -8,9 +8,9 @@
 .searchInputField {
 	display: flex;
 	flex-direction: column;
-	background-color: whitesmoke;
-	margin-bottom: 20px;
-	margin-top: 20px;
+	background-color: #fcf4cc;
+	margin-bottom: 30px;
+	margin-top: 30px;
 	padding: 20px;
 	border-radius: 20px;
 }
@@ -18,13 +18,24 @@
 	display: flex;
 	justify-content: space-around;
 }
-.searchInputFieldCost {
+.searchInputFieldCostLow {
 	width: 150px;
 	text-align: center;
 	font-size: 15px;
+	grid-area: searchInputSlider;
+	place-self: end start;
+}
+.searchInputFieldCostHigh {
+	width: 150px;
+	text-align: center;
+	font-size: 15px;
+	grid-area: searchInputSlider;
+	place-self: end end;
 }
 .searchInputSlider {
-	width: 30%;
+	grid-area: searchInputSlider;
+	place-self: start center;
+	width: 57vw;
 }
 .searchInputThumb {
 	height: 10px;
@@ -40,10 +51,11 @@
 	border-radius: 10px;
 }
 .searchInputTrack-1 {
-	background-color: gray;
+	background-color: #504f4b;
 }
 .searchInputFieldTextInput {
-	width: 40%;
+	width: 80%;
+	border: none;
 }
 .resultField {
 	width: 100%;
@@ -53,37 +65,68 @@
 .hakwonResult {
 	width: 48%;
 	float: left;
+	display: flex;
+	flex-direction: column;
 }
 .mapResult {
-	width: 48%;
-	height: 800px;
+	width: 50%;
+	height: 840px;
 	float: left;
 }
-button {
+.nameButton {
+	width: 20%;
 	border-style: none;
+	background-color: white;
+}
+.initButton {
+	padding: 0.5vw;
+	width: 11vw;
+	border-style: none;
+	background-color: #504f4b;
+	color: #fcf4cc;
+	grid-area: initButton;
+	border-radius: 5px;
+	place-self: center center;
+	font-size: 25px;
 }
 .pageButton {
-	border-style: none solid;
+	min-width: 5%;
+	height: 25px;
+	font-size: 20px;
 	background-color: white;
-	border-color: gray;
+	text-align: center;
+	margin-right: -2px;
+	z-index: 1;
+}
+.pageButtonNow {
+	min-width: 5%;
+	height: 25px;
+	font-size: 20px;
+	background-color: #fcf4cc;
 	text-align: center;
 	margin-right: -2px;
 	z-index: 1;
 }
 .dropdown {
-	width: 200px;
-	border: solid 1px gray;
 	background-color: white;
+	padding: 0.5vw;
+	width: 10vw;
+	place-self: center center;
+}
+.dropdownSort {
+	background-color: white;
+	padding: 0.5vw;
+	width: 10vw;
 	margin-bottom: 10px;
-	padding: 5px;
 }
 .dropdownMenu {
-	width: 210px;
+	width: 10vw;
+	padding-right: 0.5vw;
+	padding-left: 0.5vw;
 	background-color: white;
-	border: solid 1px gray;
 	z-index: 4;
-	margin-left: -6px;
-	margin-top: 5px;
+	margin-left: -0.5vw;
+	margin-top: 0.5vw;
 	position: absolute;
 	max-height: 200px;
 	overflow-y: auto;

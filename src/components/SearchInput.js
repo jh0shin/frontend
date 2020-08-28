@@ -6,6 +6,31 @@ import SearchResultBox from './SearchResultBox';
 import Dropdown from 'react-dropdown';
 import ReactSlider from 'react-slider';
 import http from '../api';
+import styled from 'styled-components';
+
+const Background = styled.div`
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: #504f4b;
+`;
+const PageButton = styled.div`
+	display: flex;
+	flex-direction: row;
+`;
+const NameSearch = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 10px;
+`;
+const Container = styled.div`
+	display: grid;
+	grid-template-rows: repeat(2, 50px);
+	grid-template-columns: repeat(5, 20%);
+	grid-template-areas: ". . . . ." "searchInputSlider searchInputSlider searchInputSlider searchInputSlider initButton";
+	row-gap: 10px;
+`;
 
 class SearchInput extends React.Component {
 	constructor(props) {
@@ -16,8 +41,8 @@ class SearchInput extends React.Component {
 			gungu: '',
 			subject: '',
 			grade: '',
-			sidoLabel: '시,도',
-			gunguLabel: '군,구',
+			sidoLabel: '시/도',
+			gunguLabel: '시/구/군',
 			subjectLabel: '과목',
 			gradeLabel: '학년',
 			maxPrice: '제한없음',
@@ -29,7 +54,8 @@ class SearchInput extends React.Component {
 			pageShow: [],
 			rawData: [],
 			onPageNum: 0,
-			offset: 0
+			offset: 0,
+			isName: true
 		};
 		this.onSelectSido = this.onSelectSido.bind(this);
 		this.onSelectGungu = this.onSelectGungu.bind(this);
@@ -103,54 +129,75 @@ class SearchInput extends React.Component {
 		};
 	};
 
-	handleData = () => {
-		const { rawData, offset } = this.state;
-		this.setState({ pageNum: [] });
+	handleData = async () => {
+		const { offset } = this.state;
+
+		const searchResult = await http.post('/api2/search/name', {
+			name: this.state.hakwonName,
+			limit: '71',
+			offset: this.state.offset * 70
+		});
+		// console.log(searchResult);
+
+		const rawData = searchResult.data;
+
 		let num = Math.ceil(rawData.length / 7) - 1;
 		let page = 0;
 		let step;
 
+		let pageNum = [];
+
 		for (step = 0; step < num; step++) {
-			this.setState({
-				pageNum: this.state.pageNum.concat({
-					key: page + 1 + offset * 10
-				})
-			});
+			pageNum.push(page + 1 + offset * 10);
 			page++;
 		}
 
-		this.setState({
-			pageShow: rawData.slice(0, 7)
-		});
+		this.setState({ pageNum, onPageNum: 10 + offset * 10, pageShow: rawData.slice(0, 7), rawData: searchResult.data });
+
+		// console.log(rawData.slice(0, 7));
 	};
 
 	handleKeyUp = (e) => {
 		if (e.keyCode === 13) {
-			this.handleInputClick();
+			this.handleInputNameClick();
 		}
 	};
 
-	handleInputFirstClick = () => {
-		this.setState({ offset: 0 }, () => {
-			this.handleInputClick();
+	handleInputFirstNameClick = () => {
+		this.setState({ offset: 0, isName: true }, () => {
+			this.handleData();
 		});
 	};
 
-	handleInputClick = async () => {
-		const searchResult = await http.post('/api/search/name', {
-			name: this.state.hakwonName,
+	handleInputFirstInitClick = () => {
+		this.setState({ offset: 0, isName: false }, () => {
+			this.handleInputInitClick();
+		});
+	};
+
+	// handleInputNameClick = async () => {
+	// const searchResult = await http.post('/api2/search/name', {
+	// 	name: this.state.hakwonName,
+	// 	limit: '71',
+	// 	offset: this.state.offset * 70
+	// });
+	// // console.log(searchResult);
+	// this.setState({ rawData: searchResult.data });
+	// this.handleData();
+	// this.showMap();
+	// };
+
+	handleInputInitClick = async () => {
+		const searchResult = await http.post('/api2/search/init', {
 			limit: '71',
-			offset: '0',
+			offset: this.state.offset * 70,
 			sido: this.state.sido,
 			gungu: this.state.gungu,
 			dong: '',
 			subject: '',
 			age: ''
-			// grade: '',
-			// lowprice: '',
-			// highprice: ''
 		});
-		console.log(searchResult);
+		// console.log(searchResult);
 		this.setState({ rawData: searchResult.data });
 		this.handleData();
 		this.showMap();
@@ -168,23 +215,22 @@ class SearchInput extends React.Component {
 
 		pageSingle = rawData.slice((e.target.id - offset * 10) * 7 - 7, (e.target.id - offset * 10) * 7);
 
-		this.setState({ pageShow: pageSingle }, () => {
+		this.setState({ pageShow: pageSingle, onPageNum: e.target.id }, () => {
 			this.showMap();
 		});
-		this.setState({ onPageNum: e.target.id });
 	};
 
 	handlePagePlus = (e) => {
 		const { offset } = this.state;
 		this.setState({ offset: offset + 1 }, () => {
-			this.handleInputClick();
+			this.handleData();
 		});
 	};
 
 	handlePageMinus = (e) => {
 		const { offset } = this.state;
 		this.setState({ offset: offset - 1 }, () => {
-			this.handleInputClick();
+			this.handleData();
 		});
 	};
 
@@ -536,7 +582,7 @@ class SearchInput extends React.Component {
 	};
 
 	render() {
-		const { pageShow, pageNum } = this.state;
+		const { pageShow, pageNum, onPageNum, offset } = this.state;
 		const sidoOptions = [
 			'서울',
 			'경기도',
@@ -593,106 +639,144 @@ class SearchInput extends React.Component {
 			plus = <div className="none" />;
 		}
 
-		let resultButton = pageShow.map((pageShow) => {
-			return (
-				<SearchResultBox name={pageShow.name} subject={pageShow.callnum} address={pageShow.addr} key={pageShow.id} />
-			);
-		});
+		let resultButton = pageShow.map((pageShow) => (
+			<SearchResultBox name={pageShow.name} address={pageShow.addr} id={pageShow.id} key={pageShow.id} />
+		));
 
-		let pageButton = pageNum.map((pageNum) => {
+		let pageLow = pageNum.slice(0, onPageNum - offset * 10 - 1);
+		let pageHigh = pageNum.slice(onPageNum - offset * 10, 9);
+
+		console.log(onPageNum);
+		console.log(pageLow);
+
+		let pageButtonLow = pageLow.map((pageLow) => {
 			return (
-				<button className="pageButton" onClick={this.handlePageClick} key={pageNum.key} id={pageNum.key}>
-					{pageNum.key}
+				<button className="pageButton" onClick={this.handlePageClick} key={pageLow} id={pageLow}>
+					{pageLow}
 				</button>
 			);
 		});
 
-		return (
-			<div className="searchBody">
-				<div className="searchInputField">
-					{/* <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" /> */}
-					<div className="searchInputFieldCol">
-						<Dropdown
-							options={sidoOptions}
-							value={this.state.sidoLabel}
-							onChange={this.onSelectSido}
-							placeholder="시,도"
-							className="dropdown"
-							menuClassName="dropdownMenu"
-						/>
-						<Dropdown
-							options={this.state.gunguOptions}
-							value={this.state.gunguLabel}
-							onChange={this.onSelectGungu}
-							placeholder="군,구"
-							className="dropdown"
-							menuClassName="dropdownMenu"
-						/>
-						<Dropdown
-							options={subjectOptions}
-							value={this.state.subjectLabel}
-							onChange={this.onSelectSub}
-							placeholder="과목"
-							className="dropdown"
-							menuClassName="dropdownMenu"
-						/>
-						<Dropdown
-							options={gradeOptions}
-							value={this.state.gradeLabel}
-							onChange={this.onSelectGrade}
-							placeholder="학년"
-							className="dropdown"
-							menuClassName="dropdownMenu"
-						/>
-					</div>
-					<div className="searchInputFieldCol">
-						<div className="searchInputFieldCost">최소 금액: {this.state.minPrice}</div>
-						<ReactSlider
-							className="searchInputSlider"
-							thumbClassName="searchInputThumb"
-							trackClassName="searchInputTrack"
-							defaultValue={[ 0, 101 ]}
-							ariaLabel={[ 'Lower thumb', 'Upper thumb' ]}
-							ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
-							onChange={this.handleSlider}
-							pearling
-							minDistance={1}
-							min={0}
-							max={101}
-						/>
-						<div className="searchInputFieldCost">최대 금액: {this.state.maxPrice}</div>
-						<input
-							className="searchInputFieldTextInput"
-							type="text"
-							onKeyUp={this.handleKeyUp}
-							value={this.state.hakwonName}
-							onChange={this.handleChangeInput}
-							name="hakwonName"
-							placeholder="학원이름을 입력해 주세요"
-						/>
-						<button onClick={this.handleInputFirstClick}>검색</button>
-					</div>
-				</div>
+		let pageButtonHigh = pageHigh.map((pageHigh) => {
+			return (
+				<button className="pageButton" onClick={this.handlePageClick} key={pageHigh} id={pageHigh}>
+					{pageHigh}
+				</button>
+			);
+		});
 
-				<div className="resultField">
-					<div className="hakwonResult">
-						<Dropdown
-							options={sortOptions}
-							value={this.state.sort}
-							onChange={this.onSelectSort}
-							placeholder="정렬기준"
-							className="dropdown"
-							menuClassName="dropdownMenu"
-						/>
-						{resultButton}
-						<br />
-						{minus}
-						{pageButton}
-						{plus}
+		let pageButtonNow = <div className="none" />;
+		if (onPageNum === 0) {
+			pageButtonNow = <div className="none" />;
+		} else {
+			pageButtonNow = (
+				<button className="pageButtonNow" onClick={this.handlePageClick} key={onPageNum} id={onPageNum}>
+					{onPageNum}
+				</button>
+			);
+		}
+
+		return (
+			<Background>
+				<div className="searchBody">
+					<div className="searchInputField">
+						{/* <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" /> */}
+						<NameSearch>
+							<input
+								className="searchInputFieldTextInput"
+								type="text"
+								onKeyUp={this.handleKeyUp}
+								value={this.state.hakwonName}
+								onChange={this.handleChangeInput}
+								name="hakwonName"
+								placeholder="학원이름을 입력해 주세요"
+							/>
+							<button className="nameButton" onClick={this.handleInputFirstNameClick}>
+								이름으로 검색
+							</button>
+						</NameSearch>
+						<Container>
+							<Dropdown
+								options={sidoOptions}
+								value={this.state.sidoLabel}
+								onChange={this.onSelectSido}
+								className="dropdown"
+								menuClassName="dropdownMenu"
+							/>
+							<Dropdown
+								options={this.state.gunguOptions}
+								value={this.state.gunguLabel}
+								onChange={this.onSelectGungu}
+								className="dropdown"
+								menuClassName="dropdownMenu"
+							/>
+							<Dropdown
+								options={this.state.gunguOptions}
+								value={this.state.gunguLabel}
+								onChange={this.onSelectGungu}
+								className="dropdown"
+								menuClassName="dropdownMenu"
+							/>
+							<Dropdown
+								options={subjectOptions}
+								value={this.state.subjectLabel}
+								onChange={this.onSelectSub}
+								placeholder="과목"
+								className="dropdown"
+								menuClassName="dropdownMenu"
+							/>
+							<Dropdown
+								options={gradeOptions}
+								value={this.state.gradeLabel}
+								onChange={this.onSelectGrade}
+								placeholder="학년"
+								className="dropdown"
+								menuClassName="dropdownMenu"
+							/>
+							<div className="searchInputFieldCostLow">최소 금액: {this.state.minPrice}</div>
+							<ReactSlider
+								className="searchInputSlider"
+								thumbClassName="searchInputThumb"
+								trackClassName="searchInputTrack"
+								defaultValue={[ 0, 101 ]}
+								ariaLabel={[ 'Lower thumb', 'Upper thumb' ]}
+								ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
+								onChange={this.handleSlider}
+								pearling
+								minDistance={1}
+								min={0}
+								max={101}
+							/>
+							<div className="searchInputFieldCostHigh">최대 금액: {this.state.maxPrice}</div>
+							<button className="initButton" onClick={this.handleInputFirstInitClick}>
+								검색
+							</button>
+						</Container>
 					</div>
-					<div id="map" className="mapResult" />
+
+					<div className="resultField">
+						<div className="hakwonResult">
+							<Dropdown
+								options={sortOptions}
+								value={this.state.sort}
+								onChange={this.onSelectSort}
+								placeholder="정렬기준"
+								className="dropdownSort"
+								menuClassName="dropdownMenu"
+							/>
+							{resultButton}
+							<PageButton>
+								{minus}
+								{pageButtonLow}
+								{pageButtonNow}
+								{pageButtonHigh}
+								{plus}
+							</PageButton>
+						</div>
+						<div id="map" className="mapResult" />
+					</div>
 				</div>
-			</div>
+			</Background>
 		);
 	}
 }

@@ -6,7 +6,8 @@ import './HomePage.css';
 import homePic1 from '../img/homePic1.png';
 import homePic2 from '../img/homePic2.png';
 import homePic3 from '../img/homePic3.png';
-import homeLogoBig from '../img/homeLogoBig.png';
+// import homeLogoBig from '../img/homeLogoBig.png';
+import homeLogoBig from '../img/logo_pre.png';
 import homeLogo1 from '../img/homeLogo1.png';
 import homeLogo2 from '../img/homeLogo2.png';
 import homeLogo3 from '../img/homeLogo3.png';
@@ -73,7 +74,7 @@ const LogoTextSmall = styled.span`
 	font-weight: 500;
 `;
 const LogoTextImg = styled.img`
-	width: 25%;
+	width: 40%;
 	padding: 20px;
 `;
 const PicWarp = styled.div`
