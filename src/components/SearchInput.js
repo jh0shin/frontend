@@ -19,16 +19,25 @@ const PageButton = styled.div`
 	flex-direction: row;
 `;
 const NameSearch = styled.div`
-	width: 100%;
+	width: 95%;
+	height: 30px;
 	display: flex;
 	flex-direction: row;
-	margin-bottom: 10px;
+	margin: 0 auto;
+	margin-bottom: 20px;
 `;
+// const Container = styled.div`
+// 	display: grid;
+// 	grid-template-rows: repeat(2, 50px);
+// 	grid-template-columns: repeat(5, 20%);
+// 	grid-template-areas: ". . . . ." "searchInputSlider searchInputSlider searchInputSlider searchInputSlider initButton";
+// 	row-gap: 10px;
+// `;
 const Container = styled.div`
 	display: grid;
-	grid-template-rows: repeat(2, 50px);
+	grid-template-rows: repeat(1, 50px);
 	grid-template-columns: repeat(5, 20%);
-	grid-template-areas: ". . . . ." "searchInputSlider searchInputSlider searchInputSlider searchInputSlider initButton";
+	grid-template-areas: ". . . . initButton";
 	row-gap: 10px;
 `;
 
@@ -44,7 +53,8 @@ class SearchInput extends React.Component {
 			sidoLabel: '시/도',
 			gunguLabel: '시/구/군',
 			subjectLabel: '과목',
-			gradeLabel: '학년',
+			// gradeLabel: '학년',
+			gradeLabel: '수업 가능한 곳 찾기',
 			maxPrice: '제한없음',
 			minPrice: '0 만원',
 			sort: '',
@@ -130,16 +140,32 @@ class SearchInput extends React.Component {
 	};
 
 	handleData = async () => {
-		const { offset } = this.state;
+		const { offset, isName } = this.state;
 
-		const searchResult = await http.post('/api2/search/name', {
-			name: this.state.hakwonName,
-			limit: '71',
-			offset: this.state.offset * 70
-		});
-		// console.log(searchResult);
+		let rawData = '';
 
-		const rawData = searchResult.data;
+		if (isName === true) {
+			const searchResult = await http.post('/api2/search/corona/name', {
+				name: this.state.hakwonName,
+				limit: '71',
+				offset: offset * 70
+			});
+			console.log(searchResult);
+
+			rawData = searchResult.data;
+		} else {
+			const searchResult = await http.post('/api2/search/corona/init', {
+				limit: '71',
+				offset: this.state.offset * 70,
+				sido: this.state.sido,
+				gungu: this.state.gungu,
+				dong: '',
+				subject: this.state.subject,
+				age: this.setState.grade
+			});
+			console.log(searchResult);
+			rawData = searchResult.data;
+		}
 
 		let num = Math.ceil(rawData.length / 7) - 1;
 		let page = 0;
@@ -152,16 +178,16 @@ class SearchInput extends React.Component {
 			page++;
 		}
 
-		this.setState({ pageNum, onPageNum: 10 + offset * 10, pageShow: rawData.slice(0, 7), rawData: searchResult.data });
-
+		this.setState({ pageNum, pageShow: rawData.slice(0, 7), rawData, onPageNum: 1 + offset * 10 });
+		this.showMap();
 		// console.log(rawData.slice(0, 7));
 	};
 
-	handleKeyUp = (e) => {
-		if (e.keyCode === 13) {
-			this.handleInputNameClick();
-		}
-	};
+	// handleKeyUp = (e) => {
+	// 	if (e.keyCode === 13) {
+	// 		this.handleInputNameClick();
+	// 	}
+	// };
 
 	handleInputFirstNameClick = () => {
 		this.setState({ offset: 0, isName: true }, () => {
@@ -171,7 +197,7 @@ class SearchInput extends React.Component {
 
 	handleInputFirstInitClick = () => {
 		this.setState({ offset: 0, isName: false }, () => {
-			this.handleInputInitClick();
+			this.handleData();
 		});
 	};
 
@@ -187,21 +213,21 @@ class SearchInput extends React.Component {
 	// this.showMap();
 	// };
 
-	handleInputInitClick = async () => {
-		const searchResult = await http.post('/api2/search/init', {
-			limit: '71',
-			offset: this.state.offset * 70,
-			sido: this.state.sido,
-			gungu: this.state.gungu,
-			dong: '',
-			subject: '',
-			age: ''
-		});
-		// console.log(searchResult);
-		this.setState({ rawData: searchResult.data });
-		this.handleData();
-		this.showMap();
-	};
+	// handleInputInitClick = async () => {
+	// 	const searchResult = await http.post('/api2/search/init', {
+	// 		limit: '71',
+	// 		offset: this.state.offset * 70,
+	// 		sido: this.state.sido,
+	// 		gungu: this.state.gungu,
+	// 		dong: '',
+	// 		subject: '',
+	// 		age: ''
+	// 	});
+	// 	console.log(searchResult);
+	// 	this.setState({ rawData: searchResult.data });
+	// 	this.handleData();
+	// 	this.showMap();
+	// };
 
 	handleChangeInput = (e) => {
 		this.setState({
@@ -222,14 +248,14 @@ class SearchInput extends React.Component {
 
 	handlePagePlus = (e) => {
 		const { offset } = this.state;
-		this.setState({ offset: offset + 1 }, () => {
+		this.setState({ offset: offset + 1, onPageNum: 1 + (offset + 1) * 10 }, () => {
 			this.handleData();
 		});
 	};
 
 	handlePageMinus = (e) => {
 		const { offset } = this.state;
-		this.setState({ offset: offset - 1 }, () => {
+		this.setState({ offset: offset - 1, onPageNum: 1 + (offset - 1) * 10 }, () => {
 			this.handleData();
 		});
 	};
@@ -282,10 +308,26 @@ class SearchInput extends React.Component {
 			'기장군',
 			'모두 선택'
 		];
-		const cungjuOptions = [ '상당구', '서원구', '흥덕구', '청원구', '모두 선택' ];
-		const chungbukOptions = [ '충주시', '제천시', '보은군', '옥천군', '영동군', '증평군', '진천군', '괴산군', '음성군', '단양군', '모두 선택' ];
-		const chunanOptions = [ '동남구', '서북구', '모두 선택' ];
+		const chungbukOptions = [
+			'청주시 상당구',
+			'청주시 서원구',
+			'청주시 흥덕구',
+			'청주시 청원구',
+			'충주시',
+			'제천시',
+			'보은군',
+			'옥천군',
+			'영동군',
+			'증평군',
+			'진천군',
+			'괴산군',
+			'음성군',
+			'단양군',
+			'모두 선택'
+		];
 		const chungnamOptions = [
+			'천안시 동남구',
+			'천안시 서북구',
 			'공주시',
 			'보령시',
 			'아산시',
@@ -326,8 +368,9 @@ class SearchInput extends React.Component {
 			'모두 선택'
 		];
 		const guangjuOptions = [ '동구', '서구', '남구', '북구', '광산구', '모두 선택' ];
-		const pohangOptions = [ '남구', ' 북구', '모두 선택' ];
 		const gyeongbukOptions = [
+			'포항시 남구',
+			'포항시 북구',
 			'경주시',
 			'김천시',
 			'안동시',
@@ -352,8 +395,12 @@ class SearchInput extends React.Component {
 			'울릉군',
 			'모두 선택'
 		];
-		const changwonOptions = [ '의창구', '성산구', '마산합포구', '마산회원구', '진해구', '모두 선택' ];
 		const gyeongnamOptions = [
+			'창원시 의창구',
+			'창원시 성산구',
+			'창원시 마산합포구',
+			'창원시 마산회원구',
+			'창원시 진해구',
 			'진주시',
 			'통영시',
 			'사천시',
@@ -373,12 +420,24 @@ class SearchInput extends React.Component {
 			'합천군',
 			'모두 선택'
 		];
-		const suwonOptions = [ '장안구', '권선구', '팔달구', '영통구', '수정구', '중원구', '분당구', '모두 선택' ];
-		const anyangOptions = [ '만안구', '동안구', '모두 선택' ];
-		const ansanOptions = [ '상록구', '단원구', '모두 선택' ];
-		const goyangOptions = [ '덕양구', '일단동구', '일산서구', '모두 선택' ];
-		const yonginOptions = [ '처안구', '기흥구', '수지구', '모두 선택' ];
 		const gyunggiOptions = [
+			'수원시 장안구',
+			'수원시 권선구',
+			'수원시 팔달구',
+			'수원시 영통구',
+			'수원시 수정구',
+			'수원시 중원구',
+			'수원시 분당구',
+			'안양시 만안구',
+			'안양시 동안구',
+			'안산시 상록구',
+			'안산시 단원구',
+			'고양시 덕양구',
+			'고양시 일단동구',
+			'고양시 일산서구',
+			'용인시 처안구',
+			'용인시 기흥구',
+			'용인시 수지구',
 			'의정부시',
 			'부천시',
 			'광명시',
@@ -408,8 +467,9 @@ class SearchInput extends React.Component {
 		];
 		const inchunOptions = [ '중구', '동구', '미추홀구', '연수구', '남동구', '부평구', '계양구', '서구', '강화군', '옹진군', '모두 선택' ];
 		const jejuOptions = [ '제주시', '서귀포시', '모두 선택' ];
-		const gyunjuOptions = [ '완산구', '덕진구', '모두 선택' ];
 		const junbukOptions = [
+			'전주시 완산구',
+			'전주시 덕진구',
 			'군산시',
 			'익산시',
 			'정읍시',
@@ -484,59 +544,39 @@ class SearchInput extends React.Component {
 		this.setState({ sidoLabel: option.label });
 
 		if (option.label === '서울') {
-			this.setState({ gunguOptions: seoulOptions });
+			this.setState({ gunguOptions: seoulOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '경기도') {
-			this.setState({ gunguOptions: gyunggiOptions });
-		} else if (option.label === '경기도 수원시') {
-			this.setState({ gunguOptions: suwonOptions });
-		} else if (option.label === '경기도 안양시') {
-			this.setState({ gunguOptions: anyangOptions });
-		} else if (option.label === '경기도 고양시') {
-			this.setState({ gunguOptions: goyangOptions });
-		} else if (option.label === '경기도 용인시') {
-			this.setState({ gunguOptions: yonginOptions });
-		} else if (option.label === '경기도 안산시') {
-			this.setState({ gunguOptions: ansanOptions });
+			this.setState({ gunguOptions: gyunggiOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '강원도') {
-			this.setState({ gunguOptions: gangwonOptions });
+			this.setState({ gunguOptions: gangwonOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '충청북도') {
-			this.setState({ gunguOptions: chungbukOptions });
-		} else if (option.label === '충청북도 청주시') {
-			this.setState({ gunguOptions: cungjuOptions });
+			this.setState({ gunguOptions: chungbukOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '충청남도') {
-			this.setState({ gunguOptions: chungnamOptions });
-		} else if (option.label === '충청남도 천안시') {
-			this.setState({ gunguOptions: chunanOptions });
+			this.setState({ gunguOptions: chungnamOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '전라북도') {
-			this.setState({ gunguOptions: junbukOptions });
-		} else if (option.label === '전라북도 전주시') {
-			this.setState({ gunguOptions: gyunjuOptions });
+			this.setState({ gunguOptions: junbukOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '전라남도') {
-			this.setState({ gunguOptions: junnamOptions });
+			this.setState({ gunguOptions: junnamOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '경상북도') {
-			this.setState({ gunguOptions: gyeongbukOptions });
-		} else if (option.label === '경상북도 포항시') {
-			this.setState({ gunguOptions: pohangOptions });
+			this.setState({ gunguOptions: gyeongbukOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '경상남도') {
-			this.setState({ gunguOptions: gyeongnamOptions });
-		} else if (option.label === '경상남도 창원시') {
-			this.setState({ gunguOptions: changwonOptions });
+			this.setState({ gunguOptions: gyeongnamOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '부산') {
-			this.setState({ gunguOptions: busanOptions });
+			this.setState({ gunguOptions: busanOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '대구') {
-			this.setState({ gunguOptions: deguOptions });
+			this.setState({ gunguOptions: deguOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '인천') {
-			this.setState({ gunguOptions: inchunOptions });
+			this.setState({ gunguOptions: inchunOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '광주') {
-			this.setState({ gunguOptions: guangjuOptions });
+			this.setState({ gunguOptions: guangjuOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '대전') {
-			this.setState({ gunguOptions: dejunOptions });
+			this.setState({ gunguOptions: dejunOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '울산') {
-			this.setState({ gunguOptions: ulsanOptions });
+			this.setState({ gunguOptions: ulsanOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '제주특별자치도') {
-			this.setState({ gunguOptions: jejuOptions });
+			this.setState({ gunguOptions: jejuOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '세종특별자치시') {
-			this.setState({ gunguOptions: sejongOptions });
+			this.setState({ gunguOptions: sejongOptions, gunguLabel: '시,도를 선택해주세요' });
 		} else if (option.label === '모두 선택') {
 			this.setState({ gunguOptions: allOptions });
 			this.setState({ sido: '' });
@@ -566,6 +606,8 @@ class SearchInput extends React.Component {
 		this.setState({ gradeLabel: option.label });
 		if (option.label === '모두 선택') {
 			this.setState({ grade: '' });
+		} else if (option.label === '교습소 (수업가능)') {
+			this.setState({ grade: '교습소' });
 		}
 	};
 
@@ -586,23 +628,13 @@ class SearchInput extends React.Component {
 		const sidoOptions = [
 			'서울',
 			'경기도',
-			'경기도 수원시',
-			'경기도 안양시',
-			'경기도 고양시',
-			'경기도 용인시',
-			'경기도 안산시',
 			'강원도',
 			'충청북도',
-			'충청북도 청주시',
 			'충청남도',
-			'충청남도 천안시',
 			'전라북도',
-			'전라북도 전주시',
 			'전라남도',
 			'경상북도',
-			'경상북도 포항시',
 			'경상남도',
-			'경상남도 창원시',
 			'부산',
 			'대구',
 			'인천',
@@ -614,7 +646,8 @@ class SearchInput extends React.Component {
 			'모두 선택'
 		];
 		const subjectOptions = [ '수학', '영어', '국어', '과학', '모두 선택' ];
-		const gradeOptions = [ '고등학교 3학년', '고등학교 2학년', '고등학교 1학년', '중학교 3학년', '중학교 2학년', '중학교 1학년', '초등학교', '모두 선택' ];
+		// const gradeOptions = [ '고등학교 3학년', '고등학교 2학년', '고등학교 1학년', '중학교 3학년', '중학교 2학년', '중학교 1학년', '초등학교', '모두 선택' ];
+		const gradeOptions = [ '모두 검색', '교습소 (수업가능)' ];
 		const sortOptions = [ '기본 정렬', '별점 높은순', '좋아요 많은 순', '가격 높은순', '가격 낮은순' ];
 
 		let minus = <div className="none" />;
@@ -640,14 +673,17 @@ class SearchInput extends React.Component {
 		}
 
 		let resultButton = pageShow.map((pageShow) => (
-			<SearchResultBox name={pageShow.name} address={pageShow.addr} id={pageShow.id} key={pageShow.id} />
+			<SearchResultBox
+				name={pageShow.name}
+				address={pageShow.addr}
+				corona={pageShow.age}
+				id={pageShow.id}
+				key={pageShow.id}
+			/>
 		));
 
-		let pageLow = pageNum.slice(0, onPageNum - offset * 10 - 1);
-		let pageHigh = pageNum.slice(onPageNum - offset * 10, 9);
-
-		console.log(onPageNum);
-		console.log(pageLow);
+		const pageLow = pageNum.slice(0, onPageNum - offset * 10 - 1);
+		const pageHigh = pageNum.slice(onPageNum - offset * 10, 10);
 
 		let pageButtonLow = pageLow.map((pageLow) => {
 			return (
@@ -710,13 +746,13 @@ class SearchInput extends React.Component {
 								className="dropdown"
 								menuClassName="dropdownMenu"
 							/>
-							<Dropdown
+							{/* <Dropdown
 								options={this.state.gunguOptions}
 								value={this.state.gunguLabel}
 								onChange={this.onSelectGungu}
 								className="dropdown"
 								menuClassName="dropdownMenu"
-							/>
+							/> */}
 							<Dropdown
 								options={subjectOptions}
 								value={this.state.subjectLabel}
@@ -729,12 +765,11 @@ class SearchInput extends React.Component {
 								options={gradeOptions}
 								value={this.state.gradeLabel}
 								onChange={this.onSelectGrade}
-								placeholder="학년"
 								className="dropdown"
 								menuClassName="dropdownMenu"
 							/>
-							<div className="searchInputFieldCostLow">최소 금액: {this.state.minPrice}</div>
-							<ReactSlider
+							{/* <div className="searchInputFieldCostLow">최소 금액: {this.state.minPrice}</div> */}
+							{/* <ReactSlider
 								className="searchInputSlider"
 								thumbClassName="searchInputThumb"
 								trackClassName="searchInputTrack"
@@ -746,24 +781,24 @@ class SearchInput extends React.Component {
 								minDistance={1}
 								min={0}
 								max={101}
-							/>
-							<div className="searchInputFieldCostHigh">최대 금액: {this.state.maxPrice}</div>
+							/> */}
+							{/* <div className="searchInputFieldCostHigh">최대 금액: {this.state.maxPrice}</div> */}
 							<button className="initButton" onClick={this.handleInputFirstInitClick}>
-								검색
+								주소로 검색
 							</button>
 						</Container>
 					</div>
 
 					<div className="resultField">
 						<div className="hakwonResult">
-							<Dropdown
+							{/* <Dropdown
 								options={sortOptions}
 								value={this.state.sort}
 								onChange={this.onSelectSort}
 								placeholder="정렬기준"
 								className="dropdownSort"
 								menuClassName="dropdownMenu"
-							/>
+							/> */}
 							{resultButton}
 							<PageButton>
 								{minus}

@@ -11,8 +11,7 @@ const LoginPresenter = ({ responseKaKao, responseFail, isLogin, userId, userData
 		</Body>
 	) : (
 		<Body>
-			<Text>카카오톡 간편 로그인</Text>
-			<Text>로그인 후 더 많은 혜택을 누리세요!</Text>
+			<Text>로그인 서비스 준비 중 입니다</Text>
 			<KaKaoBtn
 				jsKey={'9f17d1af144fec8d4501c5e713f1c0a8'}
 				buttonText="KaKao"

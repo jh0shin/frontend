@@ -26,8 +26,8 @@ function AppBottom() {
 	return (
 		<Body>
 			<Bottons>
-				<SLink to="/about">이용 약관</SLink>
-				<SLink to="/about">개인정보 처리 방침</SLink>
+				<SLink to="/about#Use">이용 약관</SLink>
+				<SLink to="/about#Private">개인정보 처리 방침</SLink>
 			</Bottons>
 			<div className="bottom">
 				{/* <p>서울시 성북구 안암로 145 고려대학교 KU개척마을 S304호</p> */}

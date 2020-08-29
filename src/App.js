@@ -26,8 +26,12 @@ function AppShow() {
 			<HashRouter>
 				<ScrollToTop>
 					<AppNavigation />
-					<Route path="/" exact={true} component={Home} />
-					<Route path="/search" component={Search} />
+					{/* <Route path="/" exact={true} component={Home} />
+					<Route path="/search" component={Search} /> */}
+
+					<Route path="/" exact={true} component={Search} />
+					<Route path="/search" component={Home} />
+
 					<Route path="/request" component={Request} />
 					<Route path="/about" component={About} />
 					<Route path="/login" component={Login} />
