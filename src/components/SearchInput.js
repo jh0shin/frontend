@@ -161,7 +161,7 @@ class SearchInput extends React.Component {
 				gungu: this.state.gungu,
 				dong: '',
 				subject: this.state.subject,
-				age: this.setState.grade
+				age: this.state.grade
 			});
 			console.log(searchResult);
 			rawData = searchResult.data;
@@ -544,39 +544,39 @@ class SearchInput extends React.Component {
 		this.setState({ sidoLabel: option.label });
 
 		if (option.label === '서울') {
-			this.setState({ gunguOptions: seoulOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: seoulOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '경기도') {
-			this.setState({ gunguOptions: gyunggiOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: gyunggiOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '강원도') {
-			this.setState({ gunguOptions: gangwonOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: gangwonOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '충청북도') {
-			this.setState({ gunguOptions: chungbukOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: chungbukOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '충청남도') {
-			this.setState({ gunguOptions: chungnamOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: chungnamOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '전라북도') {
-			this.setState({ gunguOptions: junbukOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: junbukOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '전라남도') {
-			this.setState({ gunguOptions: junnamOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: junnamOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '경상북도') {
-			this.setState({ gunguOptions: gyeongbukOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: gyeongbukOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '경상남도') {
-			this.setState({ gunguOptions: gyeongnamOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: gyeongnamOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '부산') {
-			this.setState({ gunguOptions: busanOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: busanOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '대구') {
-			this.setState({ gunguOptions: deguOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: deguOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '인천') {
-			this.setState({ gunguOptions: inchunOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: inchunOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '광주') {
-			this.setState({ gunguOptions: guangjuOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: guangjuOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '대전') {
-			this.setState({ gunguOptions: dejunOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: dejunOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '울산') {
-			this.setState({ gunguOptions: ulsanOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: ulsanOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '제주특별자치도') {
-			this.setState({ gunguOptions: jejuOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: jejuOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '세종특별자치시') {
-			this.setState({ gunguOptions: sejongOptions, gunguLabel: '시,도를 선택해주세요' });
+			this.setState({ gunguOptions: sejongOptions, gunguLabel: '시,도를 선택해주세요', gungu: '' });
 		} else if (option.label === '모두 선택') {
 			this.setState({ gunguOptions: allOptions });
 			this.setState({ sido: '' });
@@ -604,7 +604,7 @@ class SearchInput extends React.Component {
 	onSelectGrade = (option) => {
 		this.setState({ grade: option.label });
 		this.setState({ gradeLabel: option.label });
-		if (option.label === '모두 선택') {
+		if (option.label === '모두 검색') {
 			this.setState({ grade: '' });
 		} else if (option.label === '교습소 (수업가능)') {
 			this.setState({ grade: '교습소' });
@@ -645,7 +645,7 @@ class SearchInput extends React.Component {
 			'세종특별자치시',
 			'모두 선택'
 		];
-		const subjectOptions = [ '수학', '영어', '국어', '과학', '모두 선택' ];
+		const subjectOptions = [ '예능', '국제화', '입시.검정 및 보습', '독서실', '기타', '모두 선택' ];
 		// const gradeOptions = [ '고등학교 3학년', '고등학교 2학년', '고등학교 1학년', '중학교 3학년', '중학교 2학년', '중학교 1학년', '초등학교', '모두 선택' ];
 		const gradeOptions = [ '모두 검색', '교습소 (수업가능)' ];
 		const sortOptions = [ '기본 정렬', '별점 높은순', '좋아요 많은 순', '가격 높은순', '가격 낮은순' ];
