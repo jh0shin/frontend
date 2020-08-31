@@ -8,6 +8,26 @@ import ReactSlider from 'react-slider';
 import http from '../api';
 import styled from 'styled-components';
 
+const CoronaTitle = styled.div`
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	margin-top: 30px;
+`;
+const CoronaTextBig = styled.div`
+	margin: 0 auto;
+	font-size: 35px;
+	font-weight: 600;
+	color: #ed2939;
+	margin-bottom: 10px;
+`;
+const CoronaTextSmall = styled.div`
+	margin: 0 auto;
+	font-size: 40px;
+	font-weight: 600;
+	color: white;
+`;
 const Background = styled.div`
 	display: flex;
 	align-items: center;
@@ -716,6 +736,10 @@ class SearchInput extends React.Component {
 		return (
 			<Background>
 				<div className="searchBody">
+					<CoronaTitle>
+						<CoronaTextBig>수도권 사회적 거리두기 2.5단계 격상</CoronaTextBig>
+						<CoronaTextSmall>우리 아이의 정확한 학원 정보를 찾아보세요</CoronaTextSmall>
+					</CoronaTitle>
 					<div className="searchInputField">
 						{/* <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" /> */}
 						<NameSearch>
