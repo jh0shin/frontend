@@ -163,7 +163,7 @@ class SearchInput extends React.Component {
 				subject: this.state.subject,
 				age: this.state.grade
 			});
-			console.log(searchResult);
+			console.log(searchResult.data);
 			rawData = searchResult.data;
 		}
 
@@ -677,6 +677,7 @@ class SearchInput extends React.Component {
 				name={pageShow.name}
 				address={pageShow.addr}
 				corona={pageShow.age}
+				callnum={pageShow.callnum}
 				id={pageShow.id}
 				key={pageShow.id}
 			/>

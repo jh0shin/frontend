@@ -14,11 +14,13 @@ import Login from './routes/Login';
 import Company from './routes/Company';
 import Reportsurvey from './routes/Reportsurvey';
 import ContactList from './components/ContactList';
-import HakwonPage from './components/hakwonPage';
+import HakwonPage from './components/HakwonPage';
 // import Robots from './routes/Robots'
 
 import { connect } from 'react-redux';
 import { changeState, changeId, changeData } from './store/modules/login';
+
+import { isMobile } from 'react-device-detect';
 
 function AppShow() {
 	return (
@@ -79,6 +81,9 @@ class App extends React.Component {
 	};
 
 	render() {
+		if (isMobile) {
+			return <div>모바일 환경에 적합하지 않은 사이트입니다. 학원고 앱을 이용해 주십시오.</div>;
+		}
 		return <AlertFuction />;
 	}
 }
